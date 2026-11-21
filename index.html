@@ -13,8 +13,8 @@
 <header class="top">
   <a class="brand" href="#"><img src="img/lanruj.svg" alt="" width="36" height="36"> Lanruj</a>
   <nav>
-    <a href="#features"><span lang="en">Features</span><span lang="ro">Ce face</span></a>
-    <a href="#files"><span lang="en">Your files</span><span lang="ro">Fișierele tale</span></a>
+    <a href="#features"><span lang="en">Features</span><span lang="ro">Funcții</span></a>
+    <a href="#files"><span lang="en">Your journal</span><span lang="ro">Jurnalul tău</span></a>
     <a href="#download"><span lang="en">Download</span><span lang="ro">Descarcă</span></a>
   </nav>
   <button class="lang" id="lang" type="button" aria-label="Limba / Language"><span lang="en">Română</span><span lang="ro">English</span></button>
@@ -25,21 +25,16 @@
 <section class="hero">
   <div class="hero-text">
     <h1>
-      <span lang="en">Your bullet journal, on Linux.</span>
-      <span lang="ro">Jurnalul tău cu semne, pe Linux.</span>
+      <span lang="en">A bullet journal app for Linux</span>
+      <span lang="ro">Jurnal de tip „bullet journal”, pe Linux</span>
     </h1>
     <p class="lead">
-      <span lang="en">Lanruj is a calm notebook for tasks, events and notes. One page a day, a week and a month at a glance, and the unfinished tasks moved forward with intention. Everything is kept as plain Markdown files on your computer.</span>
-      <span lang="ro">Lanruj e un caiet liniștit pentru sarcini, evenimente și notițe. O pagină pe zi, săptămâna și luna dintr-o privire, iar sarcinile neterminate mutate mai departe cu gândul la ele. Totul stă în fișiere Markdown obișnuite, pe calculatorul tău.</span>
+      <span lang="en">Lanruj is a bullet journal app for tasks, events and notes. It is easy to use, keeps everything as Markdown files on your computer and can encrypt your journal with a password.</span>
+      <span lang="ro">Lanruj este o aplicație de tip „bullet journal” pentru sarcini, evenimente și notițe. Este ușor de folosit, păstrează totul în fișiere Markdown pe calculatorul tău și poate cripta jurnalul cu o parolă.</span>
     </p>
     <div class="actions">
-      <a class="button primary" href="#download"><span lang="en">Get Lanruj</span><span lang="ro">Ia Lanruj</span></a>
-      <a class="button" href="#features"><span lang="en">See what it does</span><span lang="ro">Vezi ce face</span></a>
+      <a class="button primary" href="#download"><span lang="en">Download Lanruj</span><span lang="ro">Descarcă Lanruj</span></a>
     </div>
-    <p class="name-note">
-      <span lang="en"><b>Lanruj</b> is "jurnal" (Romanian for journal) written backwards.</span>
-      <span lang="ro"><b>Lanruj</b> e „jurnal” citit de la coadă la cap.</span>
-    </p>
   </div>
   <figure class="shot hero-shot">
     <picture>
@@ -49,36 +44,10 @@
   </figure>
 </section>
 
-<section class="signs">
-  <h2><span lang="en">Write fast, with a few signs</span><span lang="ro">Scrii repede, cu câteva semne</span></h2>
-  <p class="section-lead">
-    <span lang="en">Type a line and press Enter. The first sign says what it is, just like on paper.</span>
-    <span lang="ro">Scrii un rând și apeși Enter. Primul semn spune ce e, ca pe hârtie.</span>
-  </p>
-  <ul class="sign-list">
-    <li><code>. Call the bank</code><span class="arrow">→</span><span class="sym">•</span><span lang="en">task</span><span lang="ro">sarcină</span></li>
-    <li><code>o 10:00 Dentist</code><span class="arrow">→</span><span class="sym">○</span><span lang="en">event</span><span lang="ro">eveniment</span></li>
-    <li><code>- First snow</code><span class="arrow">→</span><span class="sym">–</span><span lang="en">note</span><span lang="ro">notă</span></li>
-    <li><code>. * Send the report</code><span class="arrow">→</span><span class="sym gold">★</span><span lang="en">important</span><span lang="ro">important</span></li>
-    <li><code>- ! Garden plan</code><span class="arrow">→</span><span class="sym gold">!</span><span lang="en">idea</span><span lang="ro">idee</span></li>
-  </ul>
-</section>
-
 <section id="features" class="features">
-  <h2><span lang="en">What it does</span><span lang="ro">Ce face</span></h2>
+  <h2><span lang="en">Features</span><span lang="ro">Funcții</span></h2>
 
   <article class="feature">
-    <div class="feature-text">
-      <h3><span lang="en">Migration, the heart of the method</span><span lang="ro">Migrarea, inima metodei</span></h3>
-      <p>
-        <span lang="en">In the evening, Lanruj walks you through the tasks you didn't finish, one at a time: move it to today, schedule it for another day or month, drop it, or keep it. A task moved again and again gets a gentle question: still worth it?</span>
-        <span lang="ro">Seara, Lanruj îți arată pe rând sarcinile neterminate: o muți pe azi, o programezi pe altă zi sau lună, renunți la ea sau o lași. O sarcină mutată iar și iar primește o întrebare blândă: mai merită?</span>
-      </p>
-    </div>
-    <figure class="shot"><img src="img/migrare.webp" width="1280" height="800" loading="lazy" alt="The migration panel offering Today, Schedule, Drop and Keep for an unfinished task"></figure>
-  </article>
-
-  <article class="feature flip">
     <div class="feature-text">
       <h3><span lang="en">Day, week, month and future log</span><span lang="ro">Ziua, săptămâna, luna și planurile</span></h3>
       <p>
@@ -89,7 +58,7 @@
     <figure class="shot"><img src="img/saptamana.webp" width="1280" height="800" loading="lazy" alt="The week page: the week plan on the left, each day of the week on the right"></figure>
   </article>
 
-  <article class="feature">
+  <article class="feature flip">
     <div class="feature-text">
       <h3><span lang="en">Index, tags and search</span><span lang="ro">Index, etichete și căutare</span></h3>
       <p>
@@ -98,6 +67,17 @@
       </p>
     </div>
     <figure class="shot"><img src="img/index.webp" width="1280" height="800" loading="lazy" alt="The index with a trip and a project, and the automatic list of months and tags"></figure>
+  </article>
+
+  <article class="feature">
+    <div class="feature-text">
+      <h3><span lang="en">Migration, the heart of the method</span><span lang="ro">Migrarea, inima metodei</span></h3>
+      <p>
+        <span lang="en">In the evening, Lanruj walks you through the tasks you didn't finish, one at a time: move it to today, schedule it for another day or month, drop it, or keep it. A task moved again and again gets a gentle question: still worth it?</span>
+        <span lang="ro">Seara, Lanruj îți arată pe rând sarcinile neterminate: o muți pe azi, o programezi pe altă zi sau lună, renunți la ea sau o lași. O sarcină mutată iar și iar primește o întrebare blândă: mai merită?</span>
+      </p>
+    </div>
+    <figure class="shot"><img src="img/migrare.webp" width="1280" height="800" loading="lazy" alt="The migration panel offering Today, Schedule, Drop and Keep for an unfinished task"></figure>
   </article>
 
   <ul class="grid">
@@ -130,15 +110,15 @@
 
 <section id="files" class="files">
   <div class="files-text">
-    <h2><span lang="en">Your files, your way</span><span lang="ro">Fișierele tale, cum vrei tu</span></h2>
+    <h2><span lang="en">Your journal stays with you</span><span lang="ro">Jurnalul rămâne la tine</span></h2>
     <p>
       <span lang="en">No account, no cloud, no tracking. Your journal is a folder of Markdown files you can open with any editor, keep in Syncthing between your computers, or back up however you like.</span>
       <span lang="ro">Fără cont, fără cloud, fără urmărire. Jurnalul tău e un dosar cu fișiere Markdown pe care le deschizi cu orice editor, le ții sincronizate cu Syncthing între calculatoare sau le salvezi cum vrei.</span>
     </p>
     <ul class="checks">
-      <li><span lang="en">Works offline, always</span><span lang="ro">Merge fără internet, mereu</span></li>
-      <li><span lang="en">English and Romanian</span><span lang="ro">În română și engleză</span></li>
-      <li><span lang="en">Free software, GPL-3.0-or-later</span><span lang="ro">Program liber, GPL-3.0-or-later</span></li>
+      <li><span lang="en">Works without an internet connection</span><span lang="ro">Funcționează și fără internet</span></li>
+      <li><span lang="en">No account, no ads</span><span lang="ro">Fără cont și fără reclame</span></li>
+      <li><span lang="en">Optional encryption with a password</span><span lang="ro">Criptare opțională, cu parolă</span></li>
     </ul>
   </div>
 <pre class="file" aria-label="2026/11/2026-11-21.md"><span class="file-name">2026/11/2026-11-21.md</span>

@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+  <defs>
+    <pattern id="puncte" width="10" height="10" patternUnits="userSpaceOnUse" x="25" y="17"><circle cx="5" cy="5" r="1" fill="#d9cfb8"/></pattern>
+    <clipPath id="pagina"><rect x="20" y="12" width="80" height="100" rx="8"/></clipPath>
+    <g id="penita">
+      <path d="M0 0 L-10 -22 Q-11.5 -27 -10 -34 H0 Z" fill="#3b6fb6"/>
+      <path d="M0 0 L10 -22 Q11.5 -27 10 -34 H0 Z" fill="#1d4580"/>
+      <path d="M0 -3 V-19" stroke="#f6efe0" stroke-width="1.6" stroke-linecap="round"/>
+      <circle cx="0" cy="-21" r="3" fill="#f6efe0"/>
+      <rect x="-12" y="-40" width="24" height="7" rx="2" fill="#c88a0a"/>
+      <path d="M-12 -38 a2 2 0 0 1 2 -2 H0 V-33 H-10 a2 2 0 0 1 -2 -2z" fill="#e5a50a"/>
+      <rect x="-12" y="-58" width="24" height="17" rx="4" fill="#e5a50a"/>
+      <path d="M0 -58 H8 a4 4 0 0 1 4 4 V-45 a4 4 0 0 1 -4 4 H0z" fill="#c88a0a"/>
+    </g>
+  </defs>
+  <!-- grosimea teancului de foi -->
+  <rect x="20" y="16" width="80" height="102" rx="8" fill="#c9bb98"/>
+  <rect x="20" y="14" width="80" height="101" rx="8" fill="#e3d8bf"/>
+  <!-- pagina -->
+  <rect x="20" y="12" width="80" height="100" rx="8" fill="#f6efe0"/>
+  <rect x="20" y="12" width="80" height="100" rx="8" fill="url(#puncte)"/>
+  <!-- semnele Bullet Journal: sarcină, eveniment, notă -->
+  <circle cx="34" cy="36" r="4" fill="#1c3d6b"/>
+  <path d="M45 36 q6 -5 12 0 t12 0 t10 0" fill="none" stroke="#1c3d6b" stroke-opacity=".55" stroke-width="3.2" stroke-linecap="round"/>
+  <circle cx="34" cy="56" r="3.6" fill="none" stroke="#1c3d6b" stroke-width="2.4"/>
+  <path d="M45 56 q6 -5 12 0 t12 0" fill="none" stroke="#1c3d6b" stroke-opacity=".55" stroke-width="3.2" stroke-linecap="round"/>
+  <path d="M30 76 h8" stroke="#1c3d6b" stroke-width="3.2" stroke-linecap="round"/>
+  <path d="M45 76 q6 -5 12 0 t12 0 q4 3 7 2" fill="none" stroke="#1c3d6b" stroke-width="3.2" stroke-linecap="round"/>
+  <!-- umbra peniței pe pagină -->
+  <g clip-path="url(#pagina)"><path transform="translate(80 84) rotate(40)" d="M0 0 L10 -22 Q11.5 -27 10 -33 H12 V-54 a4 4 0 0 0 -4 -4 H-8 a4 4 0 0 0 -4 4 V-33 H-10 Q-11.5 -27 -10 -22 Z" fill="#3d2f10" opacity=".16"/></g>
+  <!-- penița -->
+  <use href="#penita" transform="translate(76 78) rotate(40)"/>
+</svg>

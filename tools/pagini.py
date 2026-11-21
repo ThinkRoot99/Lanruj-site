@@ -82,6 +82,7 @@ def footer(lang, key):
         </ul>
       </div>
     </div>
+    <p class="legal copy"><span class="copyleft" role="img" aria-label="Copyleft">©</span> 2026 Lanruj</p>
     <p class="legal">Lanruj is free software, released under the GPL-3.0-or-later licence. Bullet Journal is a method created by Ryder Carroll; Lanruj is an independent app and is not affiliated with it or its creator.</p>
   </div>
 </footer>'''
@@ -110,6 +111,7 @@ def footer(lang, key):
         </ul>
       </div>
     </div>
+    <p class="legal copy"><span class="copyleft" role="img" aria-label="Copyleft">©</span> 2026 Lanruj</p>
     <p class="legal">Lanruj este un program liber, sub licența GPL-3.0-or-later. Bullet Journal este o metodă creată de Ryder Carroll; Lanruj este o aplicație independentă și nu este afiliată metodei sau autorului ei.</p>
   </div>
 </footer>'''

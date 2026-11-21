@@ -1,162 +1,222 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-base="" class="no-js">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Lanruj - a bullet journal app for Linux</title>
-<meta name="description" content="Lanruj is a bullet journal app for Linux for tasks, events and notes, kept as Markdown files on your computer, with optional encryption.">
-<link rel="icon" href="img/lanruj.svg" type="image/svg+xml">
-<link rel="stylesheet" href="style.css">
-<link rel="alternate" hreflang="en" href="./">
-<link rel="alternate" hreflang="ro" href="ro/">
-<script>
-// The chosen language is kept in the visitor's browser; English is the default.
-try { if (localStorage.getItem("lanruj-limba") === "ro") location.replace("ro/"); } catch (e) {}
-function setLang(l) { try { localStorage.setItem("lanruj-limba", l); } catch (e) {} }
-</script>
+<meta name="description" content="Lanruj is an open-source bullet journal app for Linux, for taking notes and organising your time and routines. Your notes stay in Markdown files on your computer, with optional encryption.">
+<link rel="icon" href="assets/img/lanruj.svg" type="image/svg+xml">
+<link rel="alternate" hreflang="en" href="index.html">
+<link rel="alternate" hreflang="ro" href="lang/ro.html">
+<link rel="stylesheet" href="assets/css/style.css">
+<script src="assets/js/main.js" defer></script>
 </head>
 <body>
 
 <header class="top">
-  <a class="brand" href="#"><img src="img/lanruj.svg" alt="" width="36" height="36"> Lanruj</a>
-  <nav>
-    <a href="#features">Features</a>
-    <a href="#files">Your journal</a>
-    <a href="#download">Download</a>
-  </nav>
-  <a class="lang" href="ro/" hreflang="ro" lang="ro" onclick="setLang('ro')">Română</a>
+  <div class="wrap">
+    <a class="brand" href="index.html"><img src="assets/img/lanruj.svg" alt="" width="34" height="34"> Lanruj</a>
+    <nav>
+      <a href="#features">Features</a>
+      <a href="#yours">Your notes</a>
+      <a href="#faq">Questions</a>
+      <a href="#download">Download</a>
+    </nav>
+    <label class="lang-pick">
+      <select id="lang" aria-label="Language">
+        <option value="en">English</option>
+        <option value="ro">Română</option>
+      </select>
+    </label>
+  </div>
 </header>
 
 <main>
 
 <section class="hero">
-  <div class="hero-text">
-    <h1>
-      A bullet journal app for Linux
-      
-    </h1>
-    <p class="lead">
-      Lanruj is an open-source bullet journal app for taking notes and organising your time and routines.
-      
-    </p>
-    <div class="actions">
-      <a class="button primary" href="#download">Download Lanruj</a>
+  <div class="wrap">
+    <div class="reveal">
+      <h1>A <span class="ink">bullet journal<svg viewBox="0 0 300 20" preserveAspectRatio="none" aria-hidden="true"><path d="M3 13 C 60 4, 140 18, 200 9 S 280 6, 297 11"/></svg></span> app for Linux</h1>
+      <p class="lead">Lanruj is an open-source bullet journal app for taking notes and organising your time and routines.</p>
+      <div class="actions">
+        <a class="button primary" href="#download">Download Lanruj</a>
+        <a class="button" href="#features">Take a look</a>
+      </div>
+      <ul class="badges">
+        <li>Free and open source</li>
+        <li>No account needed</li>
+        <li>Works offline</li>
+      </ul>
+    </div>
+    <div class="hero-shot reveal">
+      <figure class="shot">
+        <picture>
+          <source srcset="assets/img/zi-noapte.webp" media="(prefers-color-scheme: dark)">
+          <img src="assets/img/zi.webp" width="1280" height="800" alt="Lanruj showing yesterday and today side by side, with tasks, events, notes, colours and pictures">
+        </picture>
+      </figure>
+      <p class="note" aria-hidden="true">yesterday and today, side by side<svg viewBox="0 0 70 50"><path d="M4 46 C 20 30, 34 18, 62 8 M50 6 L63 8 L56 19"/></svg></p>
     </div>
   </div>
-  <figure class="shot hero-shot">
-    <picture>
-      <source srcset="img/zi-noapte.webp" media="(prefers-color-scheme: dark)">
-      <img src="img/zi.webp" width="1280" height="800" alt="Lanruj showing yesterday and today side by side, with tasks, events, notes, colours and pictures">
-    </picture>
-  </figure>
 </section>
 
-<section id="features" class="features">
-  <h2>Features</h2>
-
-  <article class="feature">
-    <div class="feature-text">
-      <h3>Day, week, month and future log</h3>
-      <p>
-        The week page shows your plan next to each day of the week. The month page holds the calendar and the month's tasks. The future log keeps what's coming later, and at the start of each month its entries move into place on their own.
-        
-      </p>
+<section id="features">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">Features</p>
+      <h2>Everything a paper journal does, and a little more</h2>
+      <p>Lanruj follows the bullet journal method: quick lines for tasks, events and notes, collections for the bigger things, and a moment every evening to decide what really matters.</p>
     </div>
-    <figure class="shot"><img src="img/saptamana.webp" width="1280" height="800" loading="lazy" alt="The week page: the week plan on the left, each day of the week on the right"></figure>
-  </article>
 
-  <article class="feature flip">
-    <div class="feature-text">
-      <h3>Index, tags and search</h3>
-      <p>
-        Bigger things, such as a trip or a project, get a line in the index and a page of their own, which also appears on the days they cover. Tags group your days automatically, and search finds anything, with or without accents.
-        
-      </p>
-    </div>
-    <figure class="shot"><img src="img/index.webp" width="1280" height="800" loading="lazy" alt="The index with a trip and a project, and the automatic list of months and tags"></figure>
-  </article>
+    <article class="feature reveal">
+      <div class="feature-text">
+        <h3>Day, week, month and future log</h3>
+        <p>The week page shows your plan next to each day of the week. The month page holds the calendar and the month's tasks. The future log keeps what's coming later, and at the start of each month its entries move into place on their own.</p>
+      </div>
+      <figure class="shot"><img src="assets/img/saptamana.webp" width="1280" height="800" loading="lazy" alt="The week page: the week plan on the left, each day of the week on the right"></figure>
+    </article>
 
-  <article class="feature">
-    <div class="feature-text">
-      <h3>Migration, the heart of the method</h3>
-      <p>
-        In the evening, Lanruj takes you through your unfinished tasks one by one: move a task to today, schedule it for another day or month, drop it or leave it as it is. A task postponed several times gets a gentle question: is it still worth it?
-        
-      </p>
-    </div>
-    <figure class="shot"><img src="img/migrare.webp" width="1280" height="800" loading="lazy" alt="The migration panel offering Today, Schedule, Drop and Keep for an unfinished task"></figure>
-  </article>
+    <article class="feature flip reveal">
+      <div class="feature-text">
+        <h3>Index, tags and search</h3>
+        <p>Bigger things, such as a trip or a project, get a line in the index and a page of their own, which also appears on the days they cover. Tags group your days automatically, and search finds anything, with or without accents.</p>
+      </div>
+      <figure class="shot"><img src="assets/img/index.webp" width="1280" height="800" loading="lazy" alt="The index with a trip and a project, and the automatic list of months and tags"></figure>
+    </article>
 
-  <ul class="grid">
-    <li>
-      <h4>Colours, links and pictures</h4>
-      <p>Coloured text and highlighting, links that open with a single click, and pictures under an entry or in a gallery.</p>
-    </li>
-    <li>
-      <h4>PDF, print and zip</h4>
-      <p>Export a page exactly as it looks, several days at once, or the whole journal as an archive, password-protected if you wish.</p>
-    </li>
-    <li>
-      <h4>Lock and encryption</h4>
-      <p>A password or a 4-digit PIN, automatic locking when the screen locks, and optional encryption of every file, with a recovery key.</p>
-    </li>
-    <li>
-      <h4>Built for the keyboard</h4>
-      <p>Every action has a keyboard shortcut, and there is an optional Vim-style key scheme: j, k, x, dd and more.</p>
-    </li>
-    <li>
-      <h4>Your paper</h4>
-      <p>Dotted, squared, lined or blank paper, five paper colours, a dark mode and the text size that suits you.</p>
-    </li>
-    <li>
-      <h4>Automatic backups</h4>
-      <p>Once a day or once a week, the whole journal is saved as a zip archive in a folder of your choice, and the oldest copies are removed.</p>
-    </li>
-  </ul>
-</section>
+    <article class="feature reveal">
+      <div class="feature-text">
+        <h3>Migration, the heart of the method</h3>
+        <p>In the evening, Lanruj takes you through your unfinished tasks one by one: move a task to today, schedule it for another day or month, drop it or leave it as it is. A task postponed several times gets a gentle question: is it still worth it?</p>
+        <div class="mini" aria-hidden="true">
+          <div class="page">
+            <div class="label">Yesterday</div>
+            <ul>
+              <li><span class="s">×</span><span>Call grandma</span></li>
+              <li class="moving"><span class="s"></span><span>Fix the shelf</span></li>
+            </ul>
+          </div>
+          <div class="page">
+            <div class="label">Today</div>
+            <ul>
+              <li><span class="s">○</span><span>11:00 Market</span></li>
+              <li class="arrived"><span class="s">•</span><span>Fix the shelf</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <figure class="shot"><img src="assets/img/migrare.webp" width="1280" height="800" loading="lazy" alt="The migration panel offering Today, Schedule, Drop and Keep for an unfinished task"></figure>
+    </article>
 
-<section id="files" class="files">
-  <div class="files-text">
-    <h2>Your journal stays with you</h2>
-    <p>
-      The app is open source and your notes are saved in Markdown, so you will always have access to them. You can sync your notes between computers with Syncthing to reach them more easily. Use encryption to protect your notes and make sure that nobody but you can read them.
-      
-    </p>
+    <ul class="cards">
+      <li class="reveal"><span class="ic">✎</span><h3>Colours, links and pictures</h3><p>Coloured text and highlighting, links that open with a single click, and pictures under an entry or in a gallery.</p></li>
+      <li class="reveal"><span class="ic">⎙</span><h3>PDF, print and zip</h3><p>Export a page exactly as it looks, several days at once, or the whole journal as an archive, password-protected if you wish.</p></li>
+      <li class="reveal"><span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="10.5" width="14" height="10" rx="2.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8.5 10.5V7.5a3.5 3.5 0 0 1 7 0v3" fill="none" stroke="currentColor" stroke-width="2"/></svg></span><h3>Lock and encryption</h3><p>A password or a 4-digit PIN, automatic locking when the screen locks, and optional encryption of every file, with a recovery key.</p></li>
+      <li class="reveal"><span class="ic">⌨</span><h3>Built for the keyboard</h3><p>Every action has a keyboard shortcut, and there is an optional Vim-style key scheme: j, k, x, dd and more.</p></li>
+      <li class="reveal"><span class="ic">◌</span><h3>Your paper</h3><p>Dotted, squared, lined or blank paper, five paper colours, a dark mode and the text size that suits you.</p></li>
+      <li class="reveal"><span class="ic">↻</span><h3>Automatic backups</h3><p>Once a day or once a week, the whole journal is saved as a zip archive in a folder of your choice, and the oldest copies are removed.</p></li>
+    </ul>
   </div>
-<pre class="file" aria-label="2026/11/2026-11-21.md"><span class="file-name">2026/11/2026-11-21.md</span>
-<span class="c-h"># Saturday, 21 November 2026</span>
+</section>
+
+<section id="yours" class="yours">
+  <div class="wrap">
+    <div class="reveal">
+      <p class="eyebrow">Your notes</p>
+      <h2>Your journal stays with you</h2>
+      <p>The app is open source and your notes are saved in Markdown, so you will always have access to them. You can sync your notes between computers with Syncthing to reach them more easily. Use encryption to protect your notes and make sure that nobody but you can read them.</p>
+    </div>
+<pre class="file reveal" aria-label="An example day file"><span class="name">2026/11/2026-11-21.md</span>
+<span class="h"># Saturday, 21 November 2026</span>
 
 - o 11:00 Farmers' market with mum
 - [ ] Wash the car
-- [ ] ! Try grandma's ==apple pie recipe==
+- [ ] <span class="k">!</span> Try grandma's ==apple pie recipe==
 - [x] Book the train tickets
 - [&gt;] Fix the kitchen shelf ^sh01
   - the screws are in the drawer
 
-<span class="c-m">Tags: home</span>
-<span class="c-m">Day: 4/5</span></pre>
+<span class="m">Tags: home</span>
+<span class="m">Day: 4/5</span></pre>
+  </div>
 </section>
 
-<section id="download" class="download">
-  <h2>Download Lanruj</h2>
-  <p class="section-lead">
-    Lanruj is almost ready. It will be available on Flathub, so it will install the same way on any Linux distribution.
-    
-  </p>
-  <div class="actions center">
-    <span class="button primary disabled" aria-disabled="true">Download from Flathub</span>
-    <span class="button disabled" aria-disabled="true">View the source code</span>
+<section id="faq" class="faq">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">Questions</p>
+      <h2>Frequently asked questions</h2>
+    </div>
+    <div class="reveal">
+      <details>
+        <summary>Is Lanruj free?</summary>
+        <p>Yes. Lanruj is free and open source, released under the GPL-3.0-or-later licence. There are no ads, no subscriptions and no paid features.</p>
+      </details>
+      <details>
+        <summary>Where are my notes stored?</summary>
+        <p>In a folder on your computer, as Markdown files: one file per day, plus files for the weeks, the months, the future log and the index. Pictures sit next to the day they belong to.</p>
+      </details>
+      <details>
+        <summary>Can I use it on more than one computer?</summary>
+        <p>Yes. Share the journal folder between your computers with Syncthing, and only the files that changed are sent.</p>
+      </details>
+      <details>
+        <summary>Can I open my notes with other apps?</summary>
+        <p>Yes, as long as encryption is off. The files are plain Markdown, so you can read them in Obsidian, Typora or any text editor.</p>
+      </details>
+      <details>
+        <summary>What happens if I forget my password?</summary>
+        <p>When you turn on encryption, Lanruj gives you a recovery key. With it you can open your journal and choose a new password. Without the password and the recovery key, nobody can read the journal, not even you.</p>
+      </details>
+      <details>
+        <summary>Which Linux distributions does it run on?</summary>
+        <p>Lanruj will be available on Flathub, so it will install the same way on almost any Linux distribution.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section id="download" class="cta">
+  <div class="wrap reveal">
+    <img src="assets/img/lanruj.svg" alt="" width="88" height="88">
+    <h2>Download Lanruj</h2>
+    <p>Lanruj is almost ready. It will be available on Flathub, so it will install the same way on any Linux distribution.</p>
+    <div class="actions">
+      <span class="button primary soon" aria-disabled="true">Download from Flathub <small>soon</small></span>
+      <span class="button soon" aria-disabled="true">View the source code <small>soon</small></span>
+    </div>
+    <p class="trust">Free and open source · No account needed · Works offline</p>
   </div>
 </section>
 
 </main>
 
 <footer>
-  <p><img src="img/lanruj.svg" alt="" width="20" height="20"> Lanruj · made by ThinkRoot · GPL-3.0-or-later</p>
-  <p class="small">
-    Bullet Journal is a method created by Ryder Carroll. Lanruj is an independent app and is not affiliated with it or its creator.
-    
-  </p>
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <a class="brand" href="index.html"><img src="assets/img/lanruj.svg" alt="" width="28" height="28"> Lanruj</a>
+        <p>A bullet journal app for Linux.</p>
+        <p class="sign">made by ThinkRoot</p>
+      </div>
+      <div>
+        <h4>App</h4>
+        <ul>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#faq">Questions</a></li>
+          <li><a href="#download">Download</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Project</h4>
+        <ul>
+          <li>Source code (soon)</li>
+          <li>GPL-3.0-or-later</li>
+        </ul>
+      </div>
+    </div>
+    <p class="legal">Bullet Journal is a method created by Ryder Carroll. Lanruj is an independent app and is not affiliated with it or its creator.</p>
+  </div>
 </footer>
 
 </body>

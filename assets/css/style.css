@@ -1,0 +1,238 @@
+/* Lanruj - site. Culorile vin din iconiță: cerneală, hârtie, ocru. */
+:root {
+  --ink: #1f3a5f;
+  --ink-2: #33557f;
+  --paper: #f6efe0;
+  --paper-2: #efe5cf;
+  --bg: #fbf8f1;
+  --text: #24303f;
+  --muted: #5f6b7a;
+  --ochre: #c98a12;
+  --red: #b4432f;
+  --line: #e2d7bf;
+  --dot: rgba(31, 58, 95, 0.13);
+  --card: #fffdf8;
+  --shadow: 0 1px 2px rgba(31, 58, 95, 0.08), 0 14px 36px rgba(31, 58, 95, 0.13);
+  --radius: 14px;
+  --hand: "Segoe Print", "Comic Neue", "Bradley Hand", "Noteworthy", "Chalkboard SE", cursive;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --ink: #b8cdea;
+    --ink-2: #9fb6d6;
+    --paper: #2a2620;
+    --paper-2: #24211c;
+    --bg: #1b1a18;
+    --text: #ece6da;
+    --muted: #a9a294;
+    --ochre: #e8b24a;
+    --red: #e7826e;
+    --line: #3a352d;
+    --dot: rgba(236, 230, 218, 0.08);
+    --card: #24221f;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 14px 36px rgba(0, 0, 0, 0.4);
+  }
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 17px/1.6 system-ui, -apple-system, "Segoe UI", "Cantarell", "Noto Sans", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; height: auto; display: block; }
+a { color: var(--ink); }
+h1, h2, h3, h4 { color: var(--ink); line-height: 1.15; margin: 0 0 0.5em; letter-spacing: -0.015em; }
+h1 { font-size: clamp(2.3rem, 5.2vw, 3.6rem); font-weight: 800; }
+h2 { font-size: clamp(1.7rem, 3.4vw, 2.3rem); font-weight: 800; }
+h3 { font-size: 1.4rem; font-weight: 750; }
+p { margin: 0 0 1em; }
+.wrap { width: min(1160px, 100% - 32px); margin-inline: auto; }
+section { padding: 88px 0; }
+.eyebrow { font-size: 0.8rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ochre); margin-bottom: 10px; }
+.section-head { text-align: center; max-width: 680px; margin: 0 auto 56px; }
+.section-head p { color: var(--muted); font-size: 1.1rem; }
+
+/* ---- Bara de sus ---- */
+.top {
+  position: sticky; top: 0; z-index: 20;
+  background: color-mix(in srgb, var(--bg) 86%, transparent);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+.top.scrolled { border-bottom-color: var(--line); box-shadow: 0 4px 18px rgba(31, 58, 95, 0.06); }
+.top .wrap { display: flex; align-items: center; gap: 28px; height: 64px; }
+.brand { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 1.2rem; text-decoration: none; color: var(--ink); }
+.brand img { transition: transform 0.4s cubic-bezier(.3, 1.6, .5, 1); }
+.brand:hover img { transform: rotate(-12deg) scale(1.08); }
+.top nav { display: flex; gap: 22px; margin-left: auto; }
+.top nav a { text-decoration: none; color: var(--muted); font-weight: 650; font-size: 0.95rem; position: relative; }
+.top nav a::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: -4px; height: 2px; border-radius: 2px;
+  background: var(--ochre); transform: scaleX(0); transform-origin: left; transition: transform 0.25s;
+}
+.top nav a:hover { color: var(--ink); }
+.top nav a:hover::after { transform: scaleX(1); }
+.lang-pick { position: relative; }
+.lang-pick select {
+  appearance: none; font: inherit; font-size: 0.9rem; font-weight: 650; color: var(--ink); cursor: pointer;
+  background: transparent; border: 1px solid var(--line); border-radius: 99px; padding: 6px 32px 6px 14px;
+}
+.lang-pick::after { content: "▾"; position: absolute; right: 13px; top: 50%; transform: translateY(-52%); color: var(--muted); pointer-events: none; font-size: 0.8rem; }
+.lang-pick select:hover { background: var(--paper); }
+
+/* ---- Începutul ---- */
+.hero {
+  padding: 72px 0 96px;
+  background-color: var(--paper);
+  background-image: radial-gradient(circle, var(--dot) 1.2px, transparent 1.8px);
+  background-size: 22px 22px;
+  border-bottom: 1px solid var(--line);
+  overflow: hidden;
+}
+.hero .wrap { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 56px; align-items: center; }
+.hero h1 .ink { position: relative; white-space: nowrap; }
+.hero h1 .ink svg { position: absolute; left: -2%; bottom: -0.18em; width: 104%; height: 0.32em; overflow: visible; }
+.hero h1 .ink path { fill: none; stroke: var(--ochre); stroke-width: 5; stroke-linecap: round; stroke-dasharray: 400; stroke-dashoffset: 400; animation: draw 1.1s 0.5s ease-out forwards; }
+@keyframes draw { to { stroke-dashoffset: 0; } }
+.lead { font-size: 1.18rem; color: var(--text); max-width: 34em; }
+.badges { display: flex; flex-wrap: wrap; gap: 8px; margin: 22px 0 0; padding: 0; list-style: none; }
+.badges li { font-size: 0.85rem; font-weight: 650; color: var(--ink); background: var(--card); border: 1px solid var(--line); border-radius: 99px; padding: 4px 12px; }
+.actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+.button {
+  display: inline-flex; align-items: center; gap: 8px; padding: 12px 22px; border-radius: 99px;
+  font-weight: 750; text-decoration: none; color: var(--ink);
+  border: 1.5px solid var(--ink); background: transparent;
+  transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+}
+.button.primary { background: var(--ink); color: var(--bg); }
+.button:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(31, 58, 95, 0.18); }
+.button.soon { opacity: 0.6; cursor: default; }
+.button.soon:hover { transform: none; box-shadow: none; }
+.button small { font-weight: 600; opacity: 0.8; }
+
+.hero-shot { position: relative; }
+.hero-shot .shot { transform: rotate(1.2deg); animation: float 7s ease-in-out infinite; }
+@keyframes float { 0%, 100% { transform: rotate(1.2deg) translateY(0); } 50% { transform: rotate(0.6deg) translateY(-8px); } }
+.shot { margin: 0; border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); border: 1px solid var(--line); background: var(--card); }
+
+/* Notă pe margine, scrisă de mână, cu săgeată desenată. */
+.note { position: absolute; font: 1.05rem/1.25 var(--hand); color: var(--red); max-width: 170px; pointer-events: none; }
+.note svg { position: absolute; width: 70px; height: 50px; overflow: visible; }
+.note path { fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; }
+.hero-shot .note { left: -26px; bottom: -58px; transform: rotate(-4deg); }
+.hero-shot .note svg { left: 120px; top: -42px; }
+
+/* ---- Caracteristici ---- */
+.feature { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 7fr); gap: 56px; align-items: center; margin-bottom: 96px; }
+.feature:last-of-type { margin-bottom: 0; }
+.feature.flip { grid-template-columns: minmax(0, 7fr) minmax(0, 4fr); }
+.feature.flip .feature-text { order: 2; }
+.feature-text p { font-size: 1.06rem; }
+.feature .shot { transition: transform 0.5s cubic-bezier(.2, .8, .2, 1), box-shadow 0.5s; }
+.feature:hover .shot { transform: translateY(-4px) rotate(-0.4deg); }
+.feature.flip:hover .shot { transform: translateY(-4px) rotate(0.4deg); }
+
+/* Micul exemplu de migrare. */
+.mini {
+  margin-top: 22px; display: grid; grid-template-columns: 1fr 1fr; gap: 0;
+  background: var(--paper); border: 1px solid var(--line); border-radius: 12px; overflow: hidden;
+  background-image: radial-gradient(circle, var(--dot) 1px, transparent 1.6px); background-size: 18px 18px;
+}
+.mini .page { padding: 14px 16px; font-size: 0.95rem; }
+.mini .page + .page { border-left: 2px solid var(--line); }
+.mini .label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; }
+.mini ul { list-style: none; margin: 0; padding: 0; }
+.mini li { display: flex; gap: 10px; align-items: baseline; color: var(--ink); min-height: 1.6em; }
+.mini .s { width: 0.9em; text-align: center; font-weight: 800; }
+.mini .moving .s::before { content: "•"; animation: sign 6s infinite; }
+.mini .moving span:last-child { animation: fade 6s infinite; }
+.mini .arrived { opacity: 0; animation: arrive 6s infinite; }
+@keyframes sign { 0%, 30% { content: "•"; } 31%, 100% { content: ">"; color: var(--ochre); } }
+@keyframes fade { 0%, 30% { opacity: 1; } 40%, 92% { opacity: 0.4; } 100% { opacity: 1; } }
+@keyframes arrive { 0%, 36% { opacity: 0; transform: translateX(-14px); } 46%, 92% { opacity: 1; transform: none; } 100% { opacity: 0; } }
+
+.cards { list-style: none; padding: 0; margin: 80px 0 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; }
+.cards li {
+  background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 24px;
+  box-shadow: 0 1px 2px rgba(31, 58, 95, 0.05);
+  transition: transform 0.3s cubic-bezier(.2, .8, .2, 1), box-shadow 0.3s;
+}
+.cards li:nth-child(3n + 1) { transform: rotate(-0.6deg); }
+.cards li:nth-child(3n + 3) { transform: rotate(0.5deg); }
+.cards li:hover { transform: translateY(-6px) rotate(0deg); box-shadow: var(--shadow); }
+.cards .ic { display: inline-grid; place-items: center; width: 42px; height: 42px; border-radius: 12px; background: var(--paper); color: var(--ink); font-size: 1.3rem; font-weight: 800; margin-bottom: 12px; }
+.cards h3 { font-size: 1.08rem; }
+.cards p { margin: 0; color: var(--muted); font-size: 0.98rem; }
+
+/* ---- Jurnalul tău ---- */
+.yours { background: var(--paper-2); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.yours .wrap { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 56px; align-items: center; }
+.file {
+  position: relative; margin: 0; padding: 22px 24px; border-radius: var(--radius); overflow-x: auto;
+  background: var(--card); border: 1px solid var(--line); box-shadow: var(--shadow); transform: rotate(-0.8deg);
+  font: 0.92rem/1.7 ui-monospace, "JetBrains Mono", "DejaVu Sans Mono", monospace; color: var(--text);
+}
+.file .name { display: block; color: var(--muted); font-size: 0.8rem; margin-bottom: 10px; }
+.file .h { color: var(--ink); font-weight: 700; }
+.file .m { color: var(--muted); }
+.file .k { color: var(--ochre); font-weight: 700; }
+
+/* ---- Întrebări ---- */
+.faq .wrap { max-width: 780px; }
+.faq details { border-bottom: 1px solid var(--line); padding: 4px 0; }
+.faq summary {
+  cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 16px;
+  padding: 16px 4px; font-weight: 750; font-size: 1.08rem; color: var(--ink);
+}
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: "+"; font-size: 1.5rem; font-weight: 400; color: var(--ochre); transition: transform 0.25s; }
+.faq details[open] summary::after { transform: rotate(45deg); }
+.faq details p { padding: 0 4px 12px; color: var(--muted); margin: 0; }
+
+/* ---- Îndemnul de la sfârșit ---- */
+.cta { text-align: center; background-color: var(--paper); background-image: radial-gradient(circle, var(--dot) 1.2px, transparent 1.8px); background-size: 22px 22px; border-top: 1px solid var(--line); }
+.cta img { margin: 0 auto 18px; animation: float 6s ease-in-out infinite; }
+.cta .actions { justify-content: center; }
+.cta .trust { margin-top: 20px; color: var(--muted); font-size: 0.95rem; }
+
+/* ---- Subsol ---- */
+footer { padding: 48px 0 36px; border-top: 1px solid var(--line); color: var(--muted); font-size: 0.95rem; }
+footer .cols { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 32px; }
+footer h4 { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink); margin-bottom: 10px; }
+footer ul { list-style: none; padding: 0; margin: 0; }
+footer li { margin-bottom: 6px; }
+footer a { color: var(--muted); text-decoration: none; }
+footer a:hover { color: var(--ink); }
+footer .sign { font: 1.1rem var(--hand); color: var(--ink); margin-top: 12px; }
+footer .legal { margin-top: 32px; padding-top: 20px; border-top: 1px solid var(--line); font-size: 0.85rem; }
+
+/* ---- Apariția la derulare ---- */
+.reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.7s ease, transform 0.7s cubic-bezier(.2, .8, .2, 1); }
+.reveal.seen { opacity: 1; transform: none; }
+.no-js .reveal { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+  .reveal { opacity: 1; transform: none; }
+  .hero h1 .ink path { stroke-dashoffset: 0; }
+  .mini .arrived { opacity: 1; }
+  .mini .moving .s::before { content: ">"; color: var(--ochre); }
+}
+
+/* ---- Ecrane mici ---- */
+@media (max-width: 880px) {
+  section { padding: 60px 0; }
+  .hero .wrap, .feature, .feature.flip, .yours .wrap { grid-template-columns: minmax(0, 1fr); gap: 32px; }
+  .feature.flip .feature-text { order: 0; }
+  .cards { grid-template-columns: minmax(0, 1fr); }
+  .top nav { display: none; }
+  .lang-pick { margin-left: auto; }
+  .hero-shot .note { display: none; }
+  footer .cols { grid-template-columns: 1fr 1fr; }
+  footer .cols > div:first-child { grid-column: 1 / -1; }
+}

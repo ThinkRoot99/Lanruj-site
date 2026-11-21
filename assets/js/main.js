@@ -3,14 +3,17 @@
   var root = document.documentElement;
   root.classList.remove("no-js");
 
-  // Limba: pagina în engleză e cea implicită; alegerea rămâne în browserul vizitatorului.
+  // Limba: engleza e implicită; alegerea rămâne în browserul vizitatorului.
+  // Fiecare pagină își anunță perechea în cealaltă limbă prin <link rel="alternate" hreflang>.
   var KEY = "lanruj-limba";
   var here = root.getAttribute("lang") || "en";
-  var base = root.getAttribute("data-base") || "";
-  function pageFor(l) { return l === "en" ? base + "index.html" : base + "lang/" + l + ".html"; }
+  function pageFor(l) {
+    var link = document.querySelector('link[rel="alternate"][hreflang="' + l + '"]');
+    return link ? link.getAttribute("href") : null;
+  }
   var saved = null;
   try { saved = localStorage.getItem(KEY); } catch (e) {}
-  if (here === "en" && saved && saved !== "en" && !/[?&]lang=en/.test(location.search)) {
+  if (here === "en" && saved && saved !== "en" && !/[?&]lang=en/.test(location.search) && pageFor(saved)) {
     location.replace(pageFor(saved));
     return;
   }
@@ -19,7 +22,8 @@
     pick.value = here;
     pick.addEventListener("change", function () {
       try { localStorage.setItem(KEY, pick.value); } catch (e) {}
-      location.href = pageFor(pick.value) + (pick.value === "en" ? "?lang=en" : "");
+      var to = pageFor(pick.value);
+      if (to) location.href = to + (pick.value === "en" ? "?lang=en" : "");
     });
   }
 

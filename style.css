@@ -30,9 +30,6 @@
   }
 }
 
-/* Limba: se vede doar textul limbii alese. */
-html[data-l="en"] [lang="ro"],
-html[data-l="ro"] [lang="en"] { display: none; }
 
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
@@ -66,6 +63,7 @@ p { margin: 0 0 1em; }
 .top nav a { text-decoration: none; color: var(--muted); font-weight: 600; font-size: 0.95rem; }
 .top nav a:hover { color: var(--ink); }
 .lang {
+  text-decoration: none;
   font: inherit; font-size: 0.9rem; font-weight: 600; cursor: pointer;
   color: var(--ink); background: transparent;
   border: 1px solid var(--line); border-radius: 99px; padding: 5px 14px;

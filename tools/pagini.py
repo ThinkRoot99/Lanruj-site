@@ -9,7 +9,7 @@ import re
 SITE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Adresa de contact: de completat de autor (până atunci apare un loc marcat).
-EMAIL = ""
+EMAIL = "lanruj@thinkroot.xyz"
 
 PAGES = {
     # cheie: (fișier EN, fișier RO)

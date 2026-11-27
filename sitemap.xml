@@ -13,6 +13,18 @@
     <xhtml:link rel="alternate" hreflang="ro" href="https://lanruj.thinkopen.site/lang/ro/"/>
   </url>
   <url>
+    <loc>https://lanruj.thinkopen.site/docs.html</loc>
+    <lastmod>2026-11-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lanruj.thinkopen.site/docs.html"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://lanruj.thinkopen.site/lang/ro/documentatie.html"/>
+  </url>
+  <url>
+    <loc>https://lanruj.thinkopen.site/lang/ro/documentatie.html</loc>
+    <lastmod>2026-11-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lanruj.thinkopen.site/docs.html"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://lanruj.thinkopen.site/lang/ro/documentatie.html"/>
+  </url>
+  <url>
     <loc>https://lanruj.thinkopen.site/about.html</loc>
     <lastmod>2026-11-27</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://lanruj.thinkopen.site/about.html"/>

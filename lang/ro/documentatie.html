@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="ro" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Documentație - Lanruj</title>
+<meta name="description" content="Cum instalezi, actualizezi și dezinstalezi Lanruj și cum îl folosești.">
+<link rel="canonical" href="https://lanruj.thinkopen.site/lang/ro/documentatie.html">
+<link rel="alternate" hreflang="en" href="https://lanruj.thinkopen.site/docs.html" data-rel="../../docs.html">
+<link rel="alternate" hreflang="ro" href="https://lanruj.thinkopen.site/lang/ro/documentatie.html" data-rel="documentatie.html">
+<link rel="alternate" hreflang="x-default" href="https://lanruj.thinkopen.site/docs.html">
+<meta name="theme-color" content="#fbf8f1" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#16202c" media="(prefers-color-scheme: dark)">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="../../assets/img/lanruj.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../assets/img/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Lanruj">
+<meta property="og:title" content="Documentație - Lanruj">
+<meta property="og:description" content="Cum instalezi, actualizezi și dezinstalezi Lanruj și cum îl folosești.">
+<meta property="og:url" content="https://lanruj.thinkopen.site/lang/ro/documentatie.html">
+<meta property="og:image" content="https://lanruj.thinkopen.site/assets/img/og-ro.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="ro_RO">
+<meta property="og:locale:alternate" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="../../assets/css/style.css?v=95d9ef6038">
+<script src="../../assets/js/main.js?v=029f297b69" defer></script>
+</head>
+<body>
+<a class="skip" href="#main">Sari la conținut</a>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="index.html"><img src="../../assets/img/lanruj.svg" alt="" width="34" height="34"> Lanruj</a>
+    <nav>
+      <a href="index.html">Acasă</a>
+      <a href="documentatie.html" aria-current="page">Documentație</a>
+      <a href="despre.html">Despre</a>
+      <a href="contact.html">Contact</a>
+      <a href="confidentialitate.html">Confidențialitate</a>
+    </nav>
+    <label class="lang-pick">
+      <select id="lang" aria-label="Limba">
+        <option value="en">English</option>
+        <option value="ro">Română</option>
+      </select>
+    </label>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="page-head"><div class="wrap narrow">
+  <p class="eyebrow">Documentație</p>
+  <h1>Instalarea și folosirea lui Lanruj</h1>
+  <p class="lead">Cum instalezi Lanruj, cum îl ții la zi sau îl dezinstalezi și cum te descurci în aplicație.</p>
+</div></section>
+<section><div class="wrap narrow prose">
+  <h2 id="instalare">Instalarea</h2>
+  <p>Lanruj vine ca AppImage și ca Flatpak. Amândouă merg pe Debian 13, pe Ubuntu 24.04 și Linux Mint 22 sau mai noi, pe Fedora, openSUSE Leap 16, Arch și alte distribuții cel puțin la fel de noi. Ai nevoie doar de unul dintre ele.</p>
+  <h3>AppImage</h3>
+  <p>AppImage-ul e un singur fișier care are în el tot ce-i trebuie; nu mai trebuie instalat nimic altceva.</p>
+  <ol>
+    <li><a href="https://github.com/ThinkRoot99/Lanruj/releases/download/v0.4.2/Lanruj-0.4.2-x86_64.AppImage">Descarcă AppImage-ul</a> și pune-l unde vrei să-l păstrezi, de exemplu într-un dosar numit <code>Aplicații</code> din dosarul tău personal.</li>
+    <li>Dă-i drept de rulare: clic dreapta pe el, Proprietăți, apoi Permisiuni, și bifează că poate fi rulat ca program. Din terminal, același lucru se face cu <code>chmod +x Lanruj-0.4.2-x86_64.AppImage</code>.</li>
+    <li>Deschide-l cu dublu clic.</li>
+  </ol>
+  <p>La fiecare pornire, Lanruj se adaugă singur în meniul de aplicații, așa că după prima pornire îl poți deschide de acolo. Dacă muți fișierul, lansatorul din meniu îl urmează la pornirea următoare.</p>
+  <h3>Flatpak</h3>
+  <p>Flatpak trebuie să fie instalat, iar Flathub adăugat. Cele mai multe distribuții le au pe amândouă; pe Debian, rulează <code>sudo apt install flatpak</code> și urmează pașii de pe <a href="https://flathub.org/setup">flathub.org/setup</a>. Apoi <a href="https://github.com/ThinkRoot99/Lanruj/releases/download/v0.4.2/lanruj.flatpak">descarcă pachetul Flatpak</a> și instalează-l din terminal, din dosarul în care l-ai salvat:</p>
+  <ul>
+    <li>doar pentru tine, fără parolă: <code>flatpak install --user lanruj.flatpak</code></li>
+    <li>pentru toți utilizatorii calculatorului, cu parola de administrator: <code>flatpak install lanruj.flatpak</code></li>
+  </ul>
+  <p>Dacă mediul GNOME lipsește, Flatpak îl descarcă de pe Flathub. Dublul clic pe fișier merge doar unde e instalat GNOME Software. Dacă Lanruj nu apare în meniul de aplicații după prima ta instalare Flatpak doar pentru tine, ieși din sesiune și intră din nou; pe Cinnamon (Linux Mint) ajunge să apeși Ctrl+Alt+Esc.</p>
+  <h2 id="actualizare">Actualizarea</h2>
+  <p><strong>AppImage:</strong> descarci versiunea nouă, o pornești o dată, apoi ștergi fișierul vechi. <strong>Flatpak:</strong> descarci noul <code>lanruj.flatpak</code> și îl instalezi la fel ca prima dată. Jurnalul și setările rămân neatinse.</p>
+  <h2 id="dezinstalare">Dezinstalarea</h2>
+  <p>Dezinstalarea scoate aplicația, nu și jurnalul. Dacă le-ai pornit, oprește întâi din Setări <em>Pornește odată cu calculatorul</em> și <em>Ține minte parola pe acest calculator</em>, ca să nu rămână nimic în programele de pornire sau în portofelul de chei.</p>
+  <p><strong>AppImage:</strong> ștergi fișierul, apoi lansatorul din meniu și iconițele:</p>
+  <ul>
+    <li><code>rm ~/.local/share/applications/io.github.ThinkRoot99.Lanruj.desktop</code></li>
+    <li><code>rm ~/.local/share/icons/hicolor/scalable/apps/io.github.ThinkRoot99.Lanruj.svg</code></li>
+    <li><code>rm ~/.local/share/icons/hicolor/symbolic/apps/io.github.ThinkRoot99.Lanruj-symbolic.svg</code></li>
+  </ul>
+  <p>Setările rămân în <code>~/.config/lanruj</code>, <code>~/.local/state/lanruj</code> și <code>~/.cache/lanruj</code>; șterge și aceste dosare dacă nu vrei să le păstrezi.</p>
+  <p><strong>Flatpak:</strong> rulează <code>flatpak uninstall --delete-data io.github.ThinkRoot99.Lanruj</code>, apoi <code>flatpak uninstall --unused</code>, care scoate și mediul GNOME dacă nu-l mai folosește altă aplicație. Dacă ai instalat Lanruj doar pentru tine, adaugă <code>--user</code> la amândouă comenzile.</p>
+  <p><strong>Jurnalul</strong> rămâne în <code>~/.lanruj</code>, iar copiile de siguranță în <code>Documente/Lanruj - copii</code> sau în dosarul ales de tine. Șterge-le doar dacă ești sigur că nu mai ai nevoie de ce ai scris.</p>
+  <h2 id="folosire">Folosirea</h2>
+  <p>Prima dată când deschizi Lanruj, te întreabă limba, hârtia, fontul și dacă vrei jurnalul criptat. Le poți schimba pe toate mai târziu, din Setări. Ghidul din aplicație (F1) explică totul pas cu pas; iată pe scurt.</p>
+  <h3>Paginile zilei, săptămânii și lunii</h3>
+  <p>Fiecare zi are pagina ei, la fel săptămâna și luna. Scrii rânduri scurte în câmpul de jos: începi rândul cu <code>.</code> pentru o sarcină, cu <code>o</code> pentru un eveniment sau cu <code>-</code> pentru o notiță, apoi apeși Enter. Pune <code>*</code> după semn ca să însemni ceva important sau <code>!</code> pentru o idee. Ctrl+Enter bifează o sarcină când e gata. În Planuri ții ce e mai departe în timp.</p>
+  <h3>Migrarea</h3>
+  <p>Seara, Ctrl+M te trece pe rând prin sarcinile pe care nu le-ai terminat. Pentru fiecare hotărăști: o muți pe ziua următoare, o programezi pe mai târziu, renunți la ea sau o lași unde este.</p>
+  <h3>Jurnalul</h3>
+  <p>Jurnalul e pentru scris pe larg, câte o pagină pe zi. Poți folosi titluri, liste, citate, culori și fonturi diferite și poți lega o bucată de text de o zi, de o sarcină sau de Monitorizare. Ctrl+Shift+O începe o însemnare nouă cu ora de acum.</p>
+  <h3>Monitorizarea</h3>
+  <p>Monitorizarea urmărește obiceiurile și activitățile tale, somnul și zilele de serviciu, lună de lună, cu grafice și foi de tipărit.</p>
+  <h3>Indexul, căutarea și biletele</h3>
+  <p>Indexul păstrează zilele și paginile pe care vrei să le regăsești; Ctrl+I adaugă ziua pe care o vezi. Ctrl+F caută peste tot. Ctrl+N deschide un bilet: o hârtiuță pentru o idee rapidă, care rămâne pe fiecare pagină până o ștergi.</p>
+  <h3>Copiile de siguranță, blocarea și criptarea</h3>
+  <p>Lanruj face singur copii de siguranță ale jurnalului. Din Setări, la Siguranță, poți bloca aplicația cu o parolă sau un PIN, o poți bloca odată cu ecranul și poți cripta tot jurnalul.</p>
+  <h3>Scurtăturile de taste</h3>
+  <p>Aproape totul se poate face de la tastatură. Ctrl+? arată în aplicație toate scurtăturile, iar <a href="https://github.com/ThinkRoot99/Lanruj/wiki/Scurtături-de-taste">pagina cu scurtăturile de taste</a> din wiki-ul proiectului le explică pe fiecare.</p>
+</div></section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <a class="brand" href="index.html"><img src="../../assets/img/lanruj.svg" alt="" width="28" height="28"> Lanruj</a>
+        <p>Jurnal de tip „bullet journal” pentru Linux.</p>
+        <p class="sign">construit de Claude AI, testat de ThinkRoot</p>
+      </div>
+      <div>
+        <h4>Aplicația</h4>
+        <ul>
+          <li><a href="index.html#caracteristici">Caracteristici</a></li>
+          <li><a href="index.html#intrebari">Întrebări</a></li>
+          <li><a href="index.html#descarca">Descarcă</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Proiectul</h4>
+        <ul>
+          <li><a href="documentatie.html">Documentație</a></li>
+          <li><a href="despre.html">Despre</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="confidentialitate.html">Politica de confidențialitate</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="legal copy"><span class="copyleft" role="img" aria-label="Copyleft">©</span> 2026 Lanruj</p>
+    <p class="legal">Lanruj este un program liber, sub licența GPL-3.0-or-later. Bullet Journal este o metodă creată de Ryder Carroll; Lanruj este o aplicație independentă și nu are legătură cu metoda sau cu autorul ei.</p>
+  </div>
+</footer>
+
+</body>
+</html>

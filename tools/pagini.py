@@ -15,16 +15,23 @@ EMAIL = "lanruj@thinkopen.site"
 SITE_URL = "https://lanruj.thinkopen.site"
 
 
+# Versiunea publicată și adresele pachetelor de la Releases (de schimbat la fiecare versiune nouă).
+VERSION = "0.4.2"
+REPO = "https://github.com/ThinkRoot99/Lanruj"
+APPIMAGE_URL = f"{REPO}/releases/download/v{VERSION}/Lanruj-{VERSION}-x86_64.AppImage"
+FLATPAK_URL = f"{REPO}/releases/download/v{VERSION}/lanruj.flatpak"
+
 PAGES = {
     # cheie: (fișier EN, fișier RO)
     "home": ("index.html", "lang/ro/index.html"),
+    "docs": ("docs.html", "lang/ro/documentatie.html"),
     "about": ("about.html", "lang/ro/despre.html"),
     "contact": ("contact.html", "lang/ro/contact.html"),
     "privacy": ("privacy.html", "lang/ro/confidentialitate.html"),
 }
 NAV = {
-    "en": [("home", "Home"), ("about", "About"), ("contact", "Contact"), ("privacy", "Privacy")],
-    "ro": [("home", "Acasă"), ("about", "Despre"), ("contact", "Contact"), ("privacy", "Confidențialitate")],
+    "en": [("home", "Home"), ("docs", "Docs"), ("about", "About"), ("contact", "Contact"), ("privacy", "Privacy")],
+    "ro": [("home", "Acasă"), ("docs", "Documentație"), ("about", "Despre"), ("contact", "Contact"), ("privacy", "Confidențialitate")],
 }
 
 
@@ -80,6 +87,7 @@ def footer(lang, key):
       <div>
         <h4>Project</h4>
         <ul>
+          <li><a href="{a("docs")}">Docs</a></li>
           <li><a href="{a("about")}">About</a></li>
           <li><a href="{a("contact")}">Contact</a></li>
           <li><a href="{a("privacy")}">Privacy policy</a></li>
@@ -109,6 +117,7 @@ def footer(lang, key):
       <div>
         <h4>Proiectul</h4>
         <ul>
+          <li><a href="{a("docs")}">Documentație</a></li>
           <li><a href="{a("about")}">Despre</a></li>
           <li><a href="{a("contact")}">Contact</a></li>
           <li><a href="{a("privacy")}">Politica de confidențialitate</a></li>
@@ -257,7 +266,7 @@ CONTENT = {
     <div class="contact-card">
       <h3>Bugs and ideas</h3>
       <p>Bug reports and feature ideas go to the project's issue tracker, where everyone can follow them.</p>
-      <span class="button soon">Forgejo and GitHub, coming soon</span>
+      <a class="button" href="https://github.com/ThinkRoot99/Lanruj/issues">Issues on GitHub</a>
     </div>
   </div>
   <p class="hint-text">When you report a bug, please mention your Linux distribution, how you installed Lanruj and the steps that lead to the problem. Never send your journal files or your password.</p>
@@ -279,10 +288,120 @@ CONTENT = {
     <div class="contact-card">
       <h3>Probleme și idei</h3>
       <p>Problemele găsite și ideile de funcții noi ajung în lista de probleme a proiectului, unde le poate urmări oricine.</p>
-      <span class="button soon">Forgejo și GitHub, în curând</span>
+      <a class="button" href="https://github.com/ThinkRoot99/Lanruj/issues">Problemele, pe GitHub</a>
     </div>
   </div>
   <p class="hint-text">Când semnalezi o problemă, spune-ne ce distribuție Linux folosești, cum ai instalat Lanruj și ce pași duc la problemă. Nu trimite niciodată fișierele jurnalului sau parola.</p>
+</div></section>
+'''),
+    ("docs", "en"): ("Docs - Lanruj", "How to install, update and uninstall Lanruj, and how to use it.", '''
+<section class="page-head"><div class="wrap narrow">
+  <p class="eyebrow">Docs</p>
+  <h1>Install and use Lanruj</h1>
+  <p class="lead">How to install Lanruj, keep it up to date or remove it, and how to find your way around the app.</p>
+</div></section>
+<section><div class="wrap narrow prose">
+  <h2 id="install">Installing</h2>
+  <p>Lanruj comes as an AppImage and as a Flatpak. Both run on Debian 13, Ubuntu 24.04 and Linux Mint 22 or newer, Fedora, openSUSE Leap 16, Arch and other distributions at least as recent. You only need one of them.</p>
+  <h3>AppImage</h3>
+  <p>The AppImage is a single file that carries everything it needs; nothing else has to be installed.</p>
+  <ol>
+    <li><a href="APPIMAGE_URL">Download the AppImage</a> and put it where you want to keep it, for example in a folder called <code>Applications</code> in your home folder.</li>
+    <li>Make it executable: right-click it, open Properties, then Permissions, and allow running it as a program. In a terminal, the same is <code>chmod +x Lanruj-VERSION-x86_64.AppImage</code>.</li>
+    <li>Double-click it.</li>
+  </ol>
+  <p>At every start, Lanruj adds itself to the applications menu, so after the first start you can open it from there. If you move the file, the menu entry follows it at the next start.</p>
+  <h3>Flatpak</h3>
+  <p>Flatpak must be installed, with Flathub added. Most distributions have both; on Debian, run <code>sudo apt install flatpak</code> and follow the steps on <a href="https://flathub.org/setup">flathub.org/setup</a>. Then <a href="FLATPAK_URL">download the Flatpak</a> and install it from a terminal, in the folder where you saved it:</p>
+  <ul>
+    <li>for you only, without a password: <code>flatpak install --user lanruj.flatpak</code></li>
+    <li>for all users of the computer, with your administrator password: <code>flatpak install lanruj.flatpak</code></li>
+  </ul>
+  <p>Flatpak downloads the GNOME runtime from Flathub if it is missing. Double-clicking the file works only where GNOME Software is installed. If Lanruj does not appear in the applications menu after your first Flatpak installation for yourself, log out and back in; on Cinnamon (Linux Mint), pressing Ctrl+Alt+Esc is enough.</p>
+  <h2 id="update">Updating</h2>
+  <p><strong>AppImage:</strong> download the new version, start it once, then delete the old file. <strong>Flatpak:</strong> download the new <code>lanruj.flatpak</code> and install it the same way as the first time. Your journal and your settings stay as they are.</p>
+  <h2 id="uninstall">Uninstalling</h2>
+  <p>Uninstalling removes the app, not your journal. If you turned them on, first turn off <em>Start with the computer</em> and <em>Remember the password on this computer</em> in Preferences, so nothing is left in your startup programs or in your keyring.</p>
+  <p><strong>AppImage:</strong> delete the file, then its menu entry and icons:</p>
+  <ul>
+    <li><code>rm ~/.local/share/applications/io.github.ThinkRoot99.Lanruj.desktop</code></li>
+    <li><code>rm ~/.local/share/icons/hicolor/scalable/apps/io.github.ThinkRoot99.Lanruj.svg</code></li>
+    <li><code>rm ~/.local/share/icons/hicolor/symbolic/apps/io.github.ThinkRoot99.Lanruj-symbolic.svg</code></li>
+  </ul>
+  <p>The settings stay in <code>~/.config/lanruj</code>, <code>~/.local/state/lanruj</code> and <code>~/.cache/lanruj</code>; delete these folders too if you do not want to keep them.</p>
+  <p><strong>Flatpak:</strong> run <code>flatpak uninstall --delete-data io.github.ThinkRoot99.Lanruj</code>, then <code>flatpak uninstall --unused</code> to remove the GNOME runtime if no other app needs it. If you installed Lanruj for you only, add <code>--user</code> to both commands.</p>
+  <p><strong>Your journal</strong> stays in <code>~/.lanruj</code>, and the backups in <code>Documents/Lanruj - copii</code> or in the folder you chose. Delete them only if you are sure you no longer need what you wrote.</p>
+  <h2 id="use">Using Lanruj</h2>
+  <p>The first time you open Lanruj, it asks for the language, the paper, the font and whether to encrypt the journal. You can change all of them later in Preferences. The guide in the app (F1) explains everything step by step; here is the short version.</p>
+  <h3>Day, week and month pages</h3>
+  <p>Each day has its own page, and the week and the month have theirs. You write short lines in the field at the bottom: start a line with <code>.</code> for a task, <code>o</code> for an event or <code>-</code> for a note, then press Enter. Add <code>*</code> after the sign to mark something important, or <code>!</code> for an idea. Ctrl+Enter ticks a task when it is done. The future log holds what is further ahead.</p>
+  <h3>Migration</h3>
+  <p>In the evening, Ctrl+M takes you through the tasks you did not finish, one by one. For each, you decide: move it to the next day, schedule it for a later date, drop it or leave it where it is.</p>
+  <h3>Journal</h3>
+  <p>The journal is for writing at length, one page per day. You can use headings, lists, quotes, colours and different fonts, and link a piece of text to a day, a task or Tracking. Ctrl+Shift+O starts a new entry with the current time.</p>
+  <h3>Tracking</h3>
+  <p>Tracking follows your habits and activities, your sleep and your work days, month by month, with charts and sheets you can print.</p>
+  <h3>Index, search and notes</h3>
+  <p>The Index keeps the days and pages you want to find again; Ctrl+I adds the day you are looking at. Ctrl+F searches everywhere. Ctrl+N opens a note: a small slip for a quick idea, which stays on every page until you delete it.</p>
+  <h3>Backups, lock and encryption</h3>
+  <p>Lanruj makes backups of your journal on its own. In Preferences, under Security, you can lock the app with a password or a PIN, lock it when the screen locks, and encrypt the whole journal.</p>
+  <h3>Keyboard shortcuts</h3>
+  <p>Almost everything can be done from the keyboard. Ctrl+? shows all the shortcuts in the app, and the <a href="https://github.com/ThinkRoot99/Lanruj/wiki/Keyboard-shortcuts">keyboard shortcuts page</a> in the project wiki explains each one.</p>
+</div></section>
+'''),
+    ("docs", "ro"): ("Documentație - Lanruj", "Cum instalezi, actualizezi și dezinstalezi Lanruj și cum îl folosești.", '''
+<section class="page-head"><div class="wrap narrow">
+  <p class="eyebrow">Documentație</p>
+  <h1>Instalarea și folosirea lui Lanruj</h1>
+  <p class="lead">Cum instalezi Lanruj, cum îl ții la zi sau îl dezinstalezi și cum te descurci în aplicație.</p>
+</div></section>
+<section><div class="wrap narrow prose">
+  <h2 id="instalare">Instalarea</h2>
+  <p>Lanruj vine ca AppImage și ca Flatpak. Amândouă merg pe Debian 13, pe Ubuntu 24.04 și Linux Mint 22 sau mai noi, pe Fedora, openSUSE Leap 16, Arch și alte distribuții cel puțin la fel de noi. Ai nevoie doar de unul dintre ele.</p>
+  <h3>AppImage</h3>
+  <p>AppImage-ul e un singur fișier care are în el tot ce-i trebuie; nu mai trebuie instalat nimic altceva.</p>
+  <ol>
+    <li><a href="APPIMAGE_URL">Descarcă AppImage-ul</a> și pune-l unde vrei să-l păstrezi, de exemplu într-un dosar numit <code>Aplicații</code> din dosarul tău personal.</li>
+    <li>Dă-i drept de rulare: clic dreapta pe el, Proprietăți, apoi Permisiuni, și bifează că poate fi rulat ca program. Din terminal, același lucru se face cu <code>chmod +x Lanruj-VERSION-x86_64.AppImage</code>.</li>
+    <li>Deschide-l cu dublu clic.</li>
+  </ol>
+  <p>La fiecare pornire, Lanruj se adaugă singur în meniul de aplicații, așa că după prima pornire îl poți deschide de acolo. Dacă muți fișierul, lansatorul din meniu îl urmează la pornirea următoare.</p>
+  <h3>Flatpak</h3>
+  <p>Flatpak trebuie să fie instalat, iar Flathub adăugat. Cele mai multe distribuții le au pe amândouă; pe Debian, rulează <code>sudo apt install flatpak</code> și urmează pașii de pe <a href="https://flathub.org/setup">flathub.org/setup</a>. Apoi <a href="FLATPAK_URL">descarcă pachetul Flatpak</a> și instalează-l din terminal, din dosarul în care l-ai salvat:</p>
+  <ul>
+    <li>doar pentru tine, fără parolă: <code>flatpak install --user lanruj.flatpak</code></li>
+    <li>pentru toți utilizatorii calculatorului, cu parola de administrator: <code>flatpak install lanruj.flatpak</code></li>
+  </ul>
+  <p>Dacă mediul GNOME lipsește, Flatpak îl descarcă de pe Flathub. Dublul clic pe fișier merge doar unde e instalat GNOME Software. Dacă Lanruj nu apare în meniul de aplicații după prima ta instalare Flatpak doar pentru tine, ieși din sesiune și intră din nou; pe Cinnamon (Linux Mint) ajunge să apeși Ctrl+Alt+Esc.</p>
+  <h2 id="actualizare">Actualizarea</h2>
+  <p><strong>AppImage:</strong> descarci versiunea nouă, o pornești o dată, apoi ștergi fișierul vechi. <strong>Flatpak:</strong> descarci noul <code>lanruj.flatpak</code> și îl instalezi la fel ca prima dată. Jurnalul și setările rămân neatinse.</p>
+  <h2 id="dezinstalare">Dezinstalarea</h2>
+  <p>Dezinstalarea scoate aplicația, nu și jurnalul. Dacă le-ai pornit, oprește întâi din Setări <em>Pornește odată cu calculatorul</em> și <em>Ține minte parola pe acest calculator</em>, ca să nu rămână nimic în programele de pornire sau în portofelul de chei.</p>
+  <p><strong>AppImage:</strong> ștergi fișierul, apoi lansatorul din meniu și iconițele:</p>
+  <ul>
+    <li><code>rm ~/.local/share/applications/io.github.ThinkRoot99.Lanruj.desktop</code></li>
+    <li><code>rm ~/.local/share/icons/hicolor/scalable/apps/io.github.ThinkRoot99.Lanruj.svg</code></li>
+    <li><code>rm ~/.local/share/icons/hicolor/symbolic/apps/io.github.ThinkRoot99.Lanruj-symbolic.svg</code></li>
+  </ul>
+  <p>Setările rămân în <code>~/.config/lanruj</code>, <code>~/.local/state/lanruj</code> și <code>~/.cache/lanruj</code>; șterge și aceste dosare dacă nu vrei să le păstrezi.</p>
+  <p><strong>Flatpak:</strong> rulează <code>flatpak uninstall --delete-data io.github.ThinkRoot99.Lanruj</code>, apoi <code>flatpak uninstall --unused</code>, care scoate și mediul GNOME dacă nu-l mai folosește altă aplicație. Dacă ai instalat Lanruj doar pentru tine, adaugă <code>--user</code> la amândouă comenzile.</p>
+  <p><strong>Jurnalul</strong> rămâne în <code>~/.lanruj</code>, iar copiile de siguranță în <code>Documente/Lanruj - copii</code> sau în dosarul ales de tine. Șterge-le doar dacă ești sigur că nu mai ai nevoie de ce ai scris.</p>
+  <h2 id="folosire">Folosirea</h2>
+  <p>Prima dată când deschizi Lanruj, te întreabă limba, hârtia, fontul și dacă vrei jurnalul criptat. Le poți schimba pe toate mai târziu, din Setări. Ghidul din aplicație (F1) explică totul pas cu pas; iată pe scurt.</p>
+  <h3>Paginile zilei, săptămânii și lunii</h3>
+  <p>Fiecare zi are pagina ei, la fel săptămâna și luna. Scrii rânduri scurte în câmpul de jos: începi rândul cu <code>.</code> pentru o sarcină, cu <code>o</code> pentru un eveniment sau cu <code>-</code> pentru o notiță, apoi apeși Enter. Pune <code>*</code> după semn ca să însemni ceva important sau <code>!</code> pentru o idee. Ctrl+Enter bifează o sarcină când e gata. În Planuri ții ce e mai departe în timp.</p>
+  <h3>Migrarea</h3>
+  <p>Seara, Ctrl+M te trece pe rând prin sarcinile pe care nu le-ai terminat. Pentru fiecare hotărăști: o muți pe ziua următoare, o programezi pe mai târziu, renunți la ea sau o lași unde este.</p>
+  <h3>Jurnalul</h3>
+  <p>Jurnalul e pentru scris pe larg, câte o pagină pe zi. Poți folosi titluri, liste, citate, culori și fonturi diferite și poți lega o bucată de text de o zi, de o sarcină sau de Monitorizare. Ctrl+Shift+O începe o însemnare nouă cu ora de acum.</p>
+  <h3>Monitorizarea</h3>
+  <p>Monitorizarea urmărește obiceiurile și activitățile tale, somnul și zilele de serviciu, lună de lună, cu grafice și foi de tipărit.</p>
+  <h3>Indexul, căutarea și biletele</h3>
+  <p>Indexul păstrează zilele și paginile pe care vrei să le regăsești; Ctrl+I adaugă ziua pe care o vezi. Ctrl+F caută peste tot. Ctrl+N deschide un bilet: o hârtiuță pentru o idee rapidă, care rămâne pe fiecare pagină până o ștergi.</p>
+  <h3>Copiile de siguranță, blocarea și criptarea</h3>
+  <p>Lanruj face singur copii de siguranță ale jurnalului. Din Setări, la Siguranță, poți bloca aplicația cu o parolă sau un PIN, o poți bloca odată cu ecranul și poți cripta tot jurnalul.</p>
+  <h3>Scurtăturile de taste</h3>
+  <p>Aproape totul se poate face de la tastatură. Ctrl+? arată în aplicație toate scurtăturile, iar <a href="https://github.com/ThinkRoot99/Lanruj/wiki/Scurtături-de-taste">pagina cu scurtăturile de taste</a> din wiki-ul proiectului le explică pe fiecare.</p>
 </div></section>
 '''),
     ("privacy", "en"): ("Privacy policy - Lanruj", "Lanruj collects no data: the app works offline and the website uses no cookies or tracking.", '''
@@ -341,10 +460,10 @@ CONTENT = {
 
 
 def build():
-    for key in ("about", "contact", "privacy"):
+    for key in ("docs", "about", "contact", "privacy"):
         for lang in ("en", "ro"):
             title, desc, body = CONTENT[(key, lang)]
-            body = body.replace("EMAIL", email_html(lang))
+            body = body.replace("EMAIL", email_html(lang)).replace("APPIMAGE_URL", APPIMAGE_URL).replace("FLATPAK_URL", FLATPAK_URL).replace("VERSION", VERSION)
             out = head(lang, key, title, desc) + header(lang, key) + "\n\n<main id=\"main\">\n" + body + "\n</main>\n\n" + footer(lang, key) + "\n\n</body>\n</html>\n"
             path = os.path.join(SITE, PAGES[key][0 if lang == "en" else 1])
             os.makedirs(os.path.dirname(path), exist_ok=True)
@@ -357,6 +476,9 @@ def build():
             s = f.read()
         s = re.sub(r"<header class=\"top\">.*?</header>", lambda _: header(lang, "home"), s, count=1, flags=re.S)
         s = re.sub(r"<footer>.*?</footer>", lambda _: footer(lang, "home"), s, count=1, flags=re.S)
+        # Butoanele de descărcare duc la pachetele versiunii publicate.
+        s = re.sub(r"releases/download/v[0-9.]+/Lanruj-[0-9.]+-x86_64\.AppImage", f"releases/download/v{VERSION}/Lanruj-{VERSION}-x86_64.AppImage", s)
+        s = re.sub(r"releases/download/v[0-9.]+/lanruj\.flatpak", f"releases/download/v{VERSION}/lanruj.flatpak", s)
         start = s.index("<!doctype html>")
         end = s.index("<body>") + len("<body>\n")
         title = re.search(r"<title>(.*?)</title>", s).group(1)

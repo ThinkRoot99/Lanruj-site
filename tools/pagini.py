@@ -232,7 +232,7 @@ CONTENT = {
   <ul class="checks">
     <li>Notițele tale sunt fișiere Markdown obișnuite, într-un dosar de pe calculatorul tău.</li>
     <li>Merge fără internet, fără cont și fără reclame.</li>
-    <li>Criptarea este acolo când ai nevoie de ea, cu o cheie de recuperare.</li>
+    <li>Criptarea îți stă la îndemână când ai nevoie de ea, cu o cheie de recuperare.</li>
     <li>Este un program liber: oricine poate citi, schimba și distribui codul.</li>
   </ul>
   <h2>Cum este făcut</h2>
@@ -278,7 +278,7 @@ CONTENT = {
     </div>
     <div class="contact-card">
       <h3>Probleme și idei</h3>
-      <p>Problemele găsite și ideile de funcții noi merg în lista proiectului, unde le poate urmări oricine.</p>
+      <p>Problemele găsite și ideile de funcții noi ajung în lista de probleme a proiectului, unde le poate urmări oricine.</p>
       <span class="button soon">Forgejo și GitHub, în curând</span>
     </div>
   </div>
@@ -311,7 +311,7 @@ CONTENT = {
   <p>For any question about privacy, see the <a href="contact.html">contact page</a>.</p>
 </div></section>
 '''),
-    ("privacy", "ro"): ("Politica de confidențialitate - Lanruj", "Lanruj nu adună niciun fel de date: aplicația funcționează fără internet, iar site-ul nu folosește cookie-uri sau urmărire.", '''
+    ("privacy", "ro"): ("Politica de confidențialitate - Lanruj", "Lanruj nu adună niciun fel de date: aplicația funcționează fără internet, iar site-ul nu folosește cookie-uri și nu te urmărește.", '''
 <section class="page-head"><div class="wrap narrow">
   <p class="eyebrow">Confidențialitate</p>
   <h1>Politica de confidențialitate</h1>

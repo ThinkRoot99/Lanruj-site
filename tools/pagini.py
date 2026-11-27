@@ -67,7 +67,7 @@ def footer(lang, key):
       <div>
         <a class="brand" href="{home}"><img src="{rel(me, "assets/img/lanruj.svg")}" alt="" width="28" height="28"> Lanruj</a>
         <p>A bullet journal app for Linux.</p>
-        <p class="sign">made by ThinkRoot</p>
+        <p class="sign">built by Claude AI, tested by ThinkRoot</p>
       </div>
       <div>
         <h4>App</h4>
@@ -96,7 +96,7 @@ def footer(lang, key):
       <div>
         <a class="brand" href="{home}"><img src="{rel(me, "assets/img/lanruj.svg")}" alt="" width="28" height="28"> Lanruj</a>
         <p>Jurnal de tip „bullet journal” pentru Linux.</p>
-        <p class="sign">creat de ThinkRoot</p>
+        <p class="sign">construit de Claude AI, testat de ThinkRoot</p>
       </div>
       <div>
         <h4>Aplicația</h4>
@@ -216,7 +216,7 @@ CONTENT = {
   <h2>How it is made</h2>
   <p>Lanruj is written in Rust, with GTK 4 and libadwaita, so it fits naturally on the GNOME desktop. It speaks English and Romanian and comes with seven fonts for your pages, including two that look like handwriting.</p>
   <h2>Who makes it</h2>
-  <p>Lanruj is made by ThinkRoot, an independent developer. Ideas, bug reports and kind words are always welcome on the <a href="contact.html">contact page</a>.</p>
+  <p>Lanruj is built by Claude, the AI made by Anthropic, and tested by ThinkRoot, who decides what goes into it and tries every version before it is released. Ideas, bug reports and kind words are always welcome on the <a href="contact.html">contact page</a>.</p>
 </div></section>
 '''),
     ("about", "ro"): ("Despre Lanruj", "Ce este Lanruj, de ce există și cum este făcut.", '''
@@ -238,7 +238,7 @@ CONTENT = {
   <h2>Cum este făcut</h2>
   <p>Lanruj este scris în Rust, cu GTK 4 și libadwaita, așa că se potrivește firesc cu desktopul GNOME. Aplicația este în engleză și în română și vine cu șapte fonturi pentru pagini, dintre care două imită scrisul de mână.</p>
   <h2>Cine îl face</h2>
-  <p>Lanruj este făcut de ThinkRoot, un dezvoltator independent. Ideile, problemele găsite și vorbele bune sunt binevenite pe <a href="contact.html">pagina de contact</a>.</p>
+  <p>Lanruj este construit de Claude, inteligența artificială a companiei Anthropic, și testat de ThinkRoot, care hotărăște ce intră în aplicație și încearcă fiecare versiune înainte să fie publicată. Ideile, problemele găsite și vorbele bune sunt binevenite pe <a href="contact.html">pagina de contact</a>.</p>
 </div></section>
 '''),
     ("contact", "en"): ("Contact - Lanruj", "How to get in touch about Lanruj: questions, ideas and bug reports.", '''

@@ -116,7 +116,7 @@ def footer(lang, key):
       </div>
     </div>
     <p class="legal copy"><span class="copyleft" role="img" aria-label="Copyleft">©</span> 2026 Lanruj</p>
-    <p class="legal">Lanruj este un program liber, sub licența GPL-3.0-or-later. Bullet Journal este o metodă creată de Ryder Carroll; Lanruj este o aplicație independentă și nu este afiliată metodei sau autorului ei.</p>
+    <p class="legal">Lanruj este un program liber, sub licența GPL-3.0-or-later. Bullet Journal este o metodă creată de Ryder Carroll; Lanruj este o aplicație independentă și nu are legătură cu metoda sau cu autorul ei.</p>
   </div>
 </footer>'''
 
@@ -231,9 +231,9 @@ CONTENT = {
   <h2>Ce urmărește</h2>
   <ul class="checks">
     <li>Notițele tale sunt fișiere Markdown obișnuite, într-un dosar de pe calculatorul tău.</li>
-    <li>Funcționează și fără internet, mereu, fără cont și fără reclame.</li>
+    <li>Merge fără internet, fără cont și fără reclame.</li>
     <li>Criptarea este acolo când ai nevoie de ea, cu o cheie de recuperare.</li>
-    <li>Este un program liber: oricine poate citi, schimba și împărți codul.</li>
+    <li>Este un program liber: oricine poate citi, schimba și distribui codul.</li>
   </ul>
   <h2>Cum este făcut</h2>
   <p>Lanruj este scris în Rust, cu GTK 4 și libadwaita, așa că se potrivește firesc cu desktopul GNOME. Vorbește română și engleză și vine cu șapte fonturi pentru pagini, dintre care două arată ca scrisul de mână.</p>
@@ -263,7 +263,7 @@ CONTENT = {
   <p class="hint-text">When you report a bug, please mention your Linux distribution, how you installed Lanruj and the steps that lead to the problem. Never send your journal files or your password.</p>
 </div></section>
 '''),
-    ("contact", "ro"): ("Contact - Lanruj", "Cum iei legătura în legătură cu Lanruj: întrebări, idei și probleme găsite.", '''
+    ("contact", "ro"): ("Contact - Lanruj", "Cum ne scrii despre Lanruj: întrebări, idei și probleme găsite.", '''
 <section class="page-head"><div class="wrap narrow">
   <p class="eyebrow">Contact</p>
   <h1>Scrie-ne</h1>
@@ -290,7 +290,7 @@ CONTENT = {
   <p class="eyebrow">Privacy</p>
   <h1>Privacy policy</h1>
   <p class="lead">In short: Lanruj does not collect anything about you. Your journal stays on your computer, and this website does not track you.</p>
-  <p class="updated">Last updated: 21 November 2026</p>
+  <p class="updated">Last updated: 27 November 2026</p>
 </div></section>
 <section><div class="wrap narrow prose">
   <h2>The app</h2>
@@ -311,17 +311,17 @@ CONTENT = {
   <p>For any question about privacy, see the <a href="contact.html">contact page</a>.</p>
 </div></section>
 '''),
-    ("privacy", "ro"): ("Politica de confidențialitate - Lanruj", "Lanruj nu adună nicio dată: aplicația funcționează fără internet, iar site-ul nu folosește cookie-uri sau urmărire.", '''
+    ("privacy", "ro"): ("Politica de confidențialitate - Lanruj", "Lanruj nu adună niciun fel de date: aplicația funcționează fără internet, iar site-ul nu folosește cookie-uri sau urmărire.", '''
 <section class="page-head"><div class="wrap narrow">
   <p class="eyebrow">Confidențialitate</p>
   <h1>Politica de confidențialitate</h1>
   <p class="lead">Pe scurt: Lanruj nu adună nimic despre tine. Jurnalul tău rămâne pe calculatorul tău, iar site-ul acesta nu te urmărește.</p>
-  <p class="updated">Ultima actualizare: 21 noiembrie 2026</p>
+  <p class="updated">Ultima actualizare: 27 noiembrie 2026</p>
 </div></section>
 <section><div class="wrap narrow prose">
   <h2>Aplicația</h2>
   <ul>
-    <li><b>Nicio dată nu pleacă de pe calculatorul tău.</b> Lanruj nu are cont, cloud, statistici sau telemetrie. Nu se conectează singur la internet; deschide o legătură în browser doar când dai clic pe ea.</li>
+    <li><b>Nicio informație nu pleacă de pe calculatorul tău.</b> Lanruj nu are cont, cloud, statistici sau telemetrie. Nu se conectează singur la internet; deschide o legătură în browser doar când dai clic pe ea.</li>
     <li><b>Jurnalul tău este un dosar cu fișiere</b> (<code>~/.lanruj</code>) pe calculatorul tău. Copiile de siguranță și arhivele exportate ajung doar unde alegi tu.</li>
     <li><b>Criptarea este opțională.</b> Când este pornită, fișierele sunt criptate pe calculatorul tău, cu parola ta. Nimeni altcineva, nici autorul aplicației, nu le poate citi și nu poate recupera parola.</li>
     <li><b>Portofelul de chei este opțional.</b> Dacă ceri ca parola să fie ținută minte, ea stă în portofelul de chei al sistemului, pe calculatorul tău.</li>

@@ -9,7 +9,7 @@ import re
 SITE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Adresa de contact: de completat de autor (până atunci apare un loc marcat).
-EMAIL = "lanruj@thinkroot.xyz"
+EMAIL = "lanruj@thinkopen.site"
 
 # Adresa site-ului (fără / la final): pentru adresele canonice, hreflang, imaginile pentru rețele și sitemap.
 SITE_URL = "https://lanruj.thinkopen.site"

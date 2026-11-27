@@ -25,6 +25,18 @@
     <xhtml:link rel="alternate" hreflang="ro" href="https://lanruj.thinkopen.site/lang/ro/documentatie.html"/>
   </url>
   <url>
+    <loc>https://lanruj.thinkopen.site/keyboard-shortcuts.html</loc>
+    <lastmod>2026-11-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lanruj.thinkopen.site/keyboard-shortcuts.html"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://lanruj.thinkopen.site/lang/ro/scurtaturi-de-taste.html"/>
+  </url>
+  <url>
+    <loc>https://lanruj.thinkopen.site/lang/ro/scurtaturi-de-taste.html</loc>
+    <lastmod>2026-11-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lanruj.thinkopen.site/keyboard-shortcuts.html"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://lanruj.thinkopen.site/lang/ro/scurtaturi-de-taste.html"/>
+  </url>
+  <url>
     <loc>https://lanruj.thinkopen.site/about.html</loc>
     <lastmod>2026-11-27</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://lanruj.thinkopen.site/about.html"/>

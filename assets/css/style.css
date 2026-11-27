@@ -256,6 +256,12 @@ footer .legal { margin-top: 32px; padding-top: 20px; border-top: 1px solid var(-
 .prose li { margin-bottom: 0.6em; }
 .prose code { background: var(--paper); border: 1px solid var(--line); border-radius: 6px; padding: 1px 6px; font-size: 0.92em; }
 .prose .checks { padding-left: 0; }
+.prose h3 { font-size: 1.15rem; margin-top: 1.4em; }
+.prose .table-wrap { overflow-x: auto; margin: 0.8em 0 1.4em; }
+.prose table { width: 100%; border-collapse: collapse; font-size: 0.95em; }
+.prose th, .prose td { text-align: left; vertical-align: top; padding: 0.55em 0.7em; border-bottom: 1px solid var(--line); }
+.prose th { font-weight: 600; }
+.prose td:first-child { white-space: nowrap; }
 .contact-cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
 .contact-card { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 24px; transition: transform 0.3s, box-shadow 0.3s; }
 .contact-card:nth-child(1) { transform: rotate(-0.5deg); }
@@ -295,3 +301,4 @@ footer .legal.copy + .legal { margin-top: 6px; padding-top: 0; border-top: none;
 .lost h1 { font-size: clamp(1.8rem, 5vw, 2.6rem); margin: 18px 0 8px; }
 .lost p { color: var(--muted); }
 .lost .lost-ro { margin-top: 28px; font-size: 0.95rem; }
+@media (max-width: 600px) { .prose td:first-child { white-space: normal; } }

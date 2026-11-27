@@ -5,13 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Lanruj - a bullet journal app for Linux</title>
 <meta name="description" content="Lanruj is an open-source bullet journal app for Linux, for taking notes and organising your time and routines. Your notes stay in Markdown files on your computer, with optional encryption.">
+<link rel="canonical" href="https://lanruj.thinkopen.site/">
+<link rel="alternate" hreflang="en" href="https://lanruj.thinkopen.site/" data-rel="index.html">
+<link rel="alternate" hreflang="ro" href="https://lanruj.thinkopen.site/lang/ro/" data-rel="lang/ro/index.html">
+<link rel="alternate" hreflang="x-default" href="https://lanruj.thinkopen.site/">
+<meta name="theme-color" content="#fbf8f1" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#16202c" media="(prefers-color-scheme: dark)">
+<meta name="color-scheme" content="light dark">
 <link rel="icon" href="assets/img/lanruj.svg" type="image/svg+xml">
-<link rel="alternate" hreflang="en" href="index.html">
-<link rel="alternate" hreflang="ro" href="lang/ro/index.html">
-<link rel="stylesheet" href="assets/css/style.css">
-<script src="assets/js/main.js" defer></script>
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Lanruj">
+<meta property="og:title" content="Lanruj - a bullet journal app for Linux">
+<meta property="og:description" content="Lanruj is an open-source bullet journal app for Linux, for taking notes and organising your time and routines. Your notes stay in Markdown files on your computer, with optional encryption.">
+<meta property="og:url" content="https://lanruj.thinkopen.site/">
+<meta property="og:image" content="https://lanruj.thinkopen.site/assets/img/og-en.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="ro_RO">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="assets/css/style.css?v=95d9ef6038">
+<script src="assets/js/main.js?v=029f297b69" defer></script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Lanruj", "operatingSystem": "Linux", "applicationCategory": "ProductivityApplication", "description": "Lanruj is an open-source bullet journal app for Linux, for taking notes and organising your time and routines. Your notes stay in Markdown files on your computer, with optional encryption.", "url": "https://lanruj.thinkopen.site/", "image": "https://lanruj.thinkopen.site/assets/img/og-en.jpg", "license": "https://www.gnu.org/licenses/gpl-3.0.html", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"}, "inLanguage": ["en", "ro"]}</script>
 </head>
 <body>
+<a class="skip" href="#main">Skip to content</a>
 
 <header class="top">
   <div class="wrap">
@@ -31,7 +50,7 @@
   </div>
 </header>
 
-<main>
+<main id="main">
 
 <section class="hero">
   <div class="wrap">
@@ -51,8 +70,8 @@
     <div class="hero-shot reveal">
       <figure class="shot">
         <picture>
-          <source srcset="assets/img/zi-noapte.webp" media="(prefers-color-scheme: dark)">
-          <img src="assets/img/zi.webp" width="1280" height="800" alt="Lanruj showing yesterday and today side by side, with tasks, events, notes, colours and pictures">
+          <source type="image/webp" srcset="assets/img/en/zi-noapte-640.webp 640w, assets/img/en/zi-noapte-960.webp 960w, assets/img/en/zi-noapte-1280.webp 1280w" sizes="(max-width: 880px) calc(100vw - 40px), 720px" media="(prefers-color-scheme: dark)">
+          <img src="assets/img/en/zi-1280.webp" srcset="assets/img/en/zi-640.webp 640w, assets/img/en/zi-960.webp 960w, assets/img/en/zi-1280.webp 1280w" sizes="(max-width: 880px) calc(100vw - 40px), 720px" width="1280" height="800" fetchpriority="high" decoding="async" alt="Lanruj showing yesterday and today side by side, with tasks, events, notes, colours and pictures">
         </picture>
       </figure>
       <p class="note" aria-hidden="true">yesterday and today, side by side<svg viewBox="0 0 70 50"><path d="M4 46 C 20 30, 34 18, 62 8 M50 6 L63 8 L56 19"/></svg></p>
@@ -73,7 +92,7 @@
         <h3>Day, week, month and future log</h3>
         <p>The week page shows your plan next to each day of the week. The month page holds the calendar and the month's tasks. The future log keeps what's coming later, and at the start of each month its entries move into place on their own.</p>
       </div>
-      <figure class="shot"><img src="assets/img/saptamana.webp" width="1280" height="800" loading="lazy" alt="The week page: the week plan on the left, each day of the week on the right"></figure>
+      <figure class="shot"><img src="assets/img/en/saptamana-1280.webp" srcset="assets/img/en/saptamana-640.webp 640w, assets/img/en/saptamana-960.webp 960w, assets/img/en/saptamana-1280.webp 1280w" sizes="(max-width: 880px) calc(100vw - 40px), 720px" width="1280" height="800" loading="lazy" decoding="async" alt="The week page: the week plan on the left, each day of the week on the right"></figure>
     </article>
 
     <article class="feature flip reveal">
@@ -81,7 +100,7 @@
         <h3>Index, tags and search</h3>
         <p>Bigger things, such as a trip or a project, get a line in the index and a page of their own, which also appears on the days they cover. Tags group your days automatically, and search finds anything, with or without accents.</p>
       </div>
-      <figure class="shot"><img src="assets/img/index.webp" width="1280" height="800" loading="lazy" alt="The index with a trip and a project, and the automatic list of months and tags"></figure>
+      <figure class="shot"><img src="assets/img/en/index-1280.webp" srcset="assets/img/en/index-640.webp 640w, assets/img/en/index-960.webp 960w, assets/img/en/index-1280.webp 1280w" sizes="(max-width: 880px) calc(100vw - 40px), 720px" width="1280" height="800" loading="lazy" decoding="async" alt="The index with a trip and a project, and the automatic list of months and tags"></figure>
     </article>
 
     <article class="feature reveal">
@@ -105,13 +124,27 @@
           </div>
         </div>
       </div>
-      <figure class="shot"><img src="assets/img/migrare.webp" width="1280" height="800" loading="lazy" alt="The migration panel offering Today, Schedule, Drop and Keep for an unfinished task"></figure>
+      <figure class="shot"><img src="assets/img/en/migrare-1280.webp" srcset="assets/img/en/migrare-640.webp 640w, assets/img/en/migrare-960.webp 960w, assets/img/en/migrare-1280.webp 1280w" sizes="(max-width: 880px) calc(100vw - 40px), 720px" width="1280" height="800" loading="lazy" decoding="async" alt="The migration panel offering Today, Schedule, Drop and Keep for an unfinished task"></figure>
+    </article>
+
+        <article class="feature flip reveal">
+      <div class="feature-text">
+        <h3>A journal for writing at length</h3>
+        <p>Besides the quick lines of the bullet journal, every day has a notebook page for what you lived and what you think. Give any line its own font and size, add headings and subheadings, lists and colours, start each entry with the time, and link a word or a whole paragraph to a task, an event or a note. The entry you linked shows a small sign that leads back to the journal.</p>
+      </div>
+      <figure class="shot"><img src="assets/img/en/jurnal-1280.webp" srcset="assets/img/en/jurnal-640.webp 640w, assets/img/en/jurnal-960.webp 960w, assets/img/en/jurnal-1280.webp 1280w" sizes="(max-width: 880px) calc(100vw - 40px), 720px" width="1280" height="800" loading="lazy" decoding="async" alt="The journal page: a heading in a handwriting font, entries with their time, bold and highlighted text, a list and a link to an entry"></figure>
+    </article>
+
+    <article class="feature reveal">
+      <div class="feature-text">
+        <h3>Tracking, month by month</h3>
+        <p>Keep an eye on the things you do every day: your own activities, ticked, counted or timed, how long you slept, with a chart of the month, and your work days with overtime and notes. Each month also prints on two A4 sheets, to fill in by hand.</p>
+      </div>
+      <figure class="shot"><img src="assets/img/en/monitorizare-1280.webp" srcset="assets/img/en/monitorizare-640.webp 640w, assets/img/en/monitorizare-960.webp 960w, assets/img/en/monitorizare-1280.webp 1280w" sizes="(max-width: 880px) calc(100vw - 40px), 720px" width="1280" height="800" loading="lazy" decoding="async" alt="Tracking: a table of daily activities on the left and, on the right, how often each one was done this month"></figure>
     </article>
 
     <ul class="cards">
-      <li class="reveal"><span class="ic">¶</span><h3>A journal for writing at length</h3><p>A notebook page for every day, for what you lived and what you think: fonts and sizes, headings, lists, colours, the time of each entry, and links to your tasks, events and notes.</p></li>
       <li class="reveal"><span class="ic">✦</span><h3>Notes on the notebook</h3><p>Ideas jotted down in a hurry, like small slips of paper stuck on the notebook. They stay on every page until you delete them or move them where they belong.</p></li>
-      <li class="reveal"><span class="ic">▤</span><h3>Tracking</h3><p>Your own activities (ticked, counted or timed), sleep with a monthly chart, and work days with overtime and notes, all on paper too.</p></li>
       <li class="reveal"><span class="ic">⌕</span><h3>Search everywhere</h3><p>Pages, journal, notes, Tracking and the Index, without caring about capitals or accents, with exact phrases in quotes and words to leave out.</p></li>
       <li class="reveal"><span class="ic">Aa</span><h3>Fonts and a gentle start</h3><p>Seven fonts built into the app, from handwriting to typewriter, and a first start in three steps: language, paper and font, and encryption if you want it.</p></li>
       <li class="reveal"><span class="ic">⛶</span><h3>Only the pages</h3><p>Full screen with just the notebook pages, without the sidebar, header and window borders, for when you want to write without anything else on the screen.</p></li>
@@ -121,6 +154,8 @@
       <li class="reveal"><span class="ic">⌨</span><h3>Built for the keyboard</h3><p>Every action has a keyboard shortcut, and there is an optional Vim-style key scheme: j, k, x, dd and more.</p></li>
       <li class="reveal"><span class="ic">◌</span><h3>Your paper</h3><p>Dotted, squared, lined or blank paper, five paper colours, a dark mode and the text size that suits you.</p></li>
       <li class="reveal"><span class="ic">↻</span><h3>Automatic backups</h3><p>Once a day or once a week, the whole journal is saved as a zip archive in a folder of your choice, and the oldest copies are removed.</p></li>
+      <li class="reveal"><span class="ic">◎</span><h3>In your language</h3><p>The app speaks English and Romanian, and it follows your system language unless you choose otherwise.</p></li>
+      <li class="reveal"><span class="ic">☁</span><h3>No account, no cloud</h3><p>Lanruj works offline and never sends your notes anywhere. Nothing is collected, nothing is tracked.</p></li>
     </ul>
   </div>
 </section>
@@ -160,7 +195,7 @@
       </details>
       <details>
         <summary>Where are my notes stored?</summary>
-        <p>In a folder on your computer, as Markdown files: one file per day, plus files for the weeks, the months, the future log and the index. Pictures sit next to the day they belong to.</p>
+        <p>In a folder on your computer, as Markdown files: one file per day, plus files for the weeks, the months, the future log, the index, the journal and Tracking. Pictures sit next to the day they belong to.</p>
       </details>
       <details>
         <summary>Can I use it on more than one computer?</summary>

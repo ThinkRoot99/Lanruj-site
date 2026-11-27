@@ -11,6 +11,10 @@ SITE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # Adresa de contact: de completat de autor (până atunci apare un loc marcat).
 EMAIL = "lanruj@thinkroot.xyz"
 
+# Adresa site-ului (fără / la final): pentru adresele canonice, hreflang, imaginile pentru rețele și sitemap.
+SITE_URL = "https://lanruj.thinkopen.site"
+
+
 PAGES = {
     # cheie: (fișier EN, fișier RO)
     "home": ("index.html", "lang/ro/index.html"),
@@ -117,8 +121,40 @@ def footer(lang, key):
 </footer>'''
 
 
+def url_of(path):
+    """Adresa completă a unei pagini; index.html devine dosarul lui."""
+    path = path[: -len("index.html")] if path.endswith("index.html") else path
+    return f"{SITE_URL}/{path}"
+
+
+def version(path):
+    """O amprentă scurtă a fișierului, pusă în adresă (?v=…): browserul îl poate ține minte mult, iar o
+    schimbare ajunge imediat la vizitatori."""
+    import hashlib
+    with open(os.path.join(SITE, path), "rb") as f:
+        return hashlib.sha256(f.read()).hexdigest()[:10]
+
+
 def head(lang, key, title, description):
     me = PAGES[key][0 if lang == "en" else 1]
+    other = "ro" if lang == "en" else "en"
+    ld = ""
+    if key == "home":
+        import json
+        ld = '<script type="application/ld+json">' + json.dumps({
+            "@context": "https://schema.org",
+            "@type": "SoftwareApplication",
+            "name": "Lanruj",
+            "operatingSystem": "Linux",
+            "applicationCategory": "ProductivityApplication",
+            "description": description,
+            "url": url_of(me),
+            "image": f"{SITE_URL}/assets/img/og-{lang}.jpg",
+            "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+            "isAccessibleForFree": True,
+            "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"},
+            "inLanguage": ["en", "ro"],
+        }, ensure_ascii=False) + "</script>\n"
     return f'''<!doctype html>
 <html lang="{lang}" class="no-js">
 <head>
@@ -126,13 +162,31 @@ def head(lang, key, title, description):
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{title}</title>
 <meta name="description" content="{description}">
+<link rel="canonical" href="{url_of(me)}">
+<link rel="alternate" hreflang="en" href="{url_of(PAGES[key][0])}" data-rel="{rel(me, PAGES[key][0])}">
+<link rel="alternate" hreflang="ro" href="{url_of(PAGES[key][1])}" data-rel="{rel(me, PAGES[key][1])}">
+<link rel="alternate" hreflang="x-default" href="{url_of(PAGES[key][0])}">
+<meta name="theme-color" content="#fbf8f1" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#16202c" media="(prefers-color-scheme: dark)">
+<meta name="color-scheme" content="light dark">
 <link rel="icon" href="{rel(me, "assets/img/lanruj.svg")}" type="image/svg+xml">
-<link rel="alternate" hreflang="en" href="{rel(me, PAGES[key][0])}">
-<link rel="alternate" hreflang="ro" href="{rel(me, PAGES[key][1])}">
-<link rel="stylesheet" href="{rel(me, "assets/css/style.css")}">
-<script src="{rel(me, "assets/js/main.js")}" defer></script>
-</head>
+<link rel="apple-touch-icon" href="{rel(me, "assets/img/apple-touch-icon.png")}">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Lanruj">
+<meta property="og:title" content="{title}">
+<meta property="og:description" content="{description}">
+<meta property="og:url" content="{url_of(me)}">
+<meta property="og:image" content="{SITE_URL}/assets/img/og-{lang}.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="{"en_US" if lang == "en" else "ro_RO"}">
+<meta property="og:locale:alternate" content="{"ro_RO" if lang == "en" else "en_US"}">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="{rel(me, "assets/css/style.css")}?v={version("assets/css/style.css")}">
+<script src="{rel(me, "assets/js/main.js")}?v={version("assets/js/main.js")}" defer></script>
+{ld}</head>
 <body>
+<a class="skip" href="#main">{"Skip to content" if lang == "en" else "Sari la conținut"}</a>
 '''
 
 
@@ -291,7 +345,7 @@ def build():
         for lang in ("en", "ro"):
             title, desc, body = CONTENT[(key, lang)]
             body = body.replace("EMAIL", email_html(lang))
-            out = head(lang, key, title, desc) + header(lang, key) + "\n\n<main>\n" + body + "\n</main>\n\n" + footer(lang, key) + "\n\n</body>\n</html>\n"
+            out = head(lang, key, title, desc) + header(lang, key) + "\n\n<main id=\"main\">\n" + body + "\n</main>\n\n" + footer(lang, key) + "\n\n</body>\n</html>\n"
             path = os.path.join(SITE, PAGES[key][0 if lang == "en" else 1])
             os.makedirs(os.path.dirname(path), exist_ok=True)
             with open(path, "w", encoding="utf-8") as f:
@@ -307,10 +361,103 @@ def build():
         end = s.index("<body>") + len("<body>\n")
         title = re.search(r"<title>(.*?)</title>", s).group(1)
         desc = re.search(r'<meta name="description" content="(.*?)">', s).group(1)
-        s = s[:start] + head(lang, "home", title, desc) + s[end:]
+        s = s[:start] + head(lang, "home", title, desc) + re.sub(r'^<a class="skip"[^\n]*\n', "", s[end:])
+        s = s.replace("<main>", '<main id="main">', 1)
         with open(path, "w", encoding="utf-8") as f:
             f.write(s)
+    extras()
     print("gata")
+
+
+def extras():
+    """sitemap.xml, robots.txt, pagina 404 și .htaccess (Apache: pagina 404, compresia, memorarea în browser)."""
+    from datetime import date
+    today = date.today().isoformat()
+    urls = []
+    for key, (en, ro) in PAGES.items():
+        for me in (en, ro):
+            alts = "".join(f'\n    <xhtml:link rel="alternate" hreflang="{l}" href="{url_of(p)}"/>' for l, p in (("en", en), ("ro", ro)))
+            urls.append(f"  <url>\n    <loc>{url_of(me)}</loc>\n    <lastmod>{today}</lastmod>{alts}\n  </url>")
+    with open(os.path.join(SITE, "sitemap.xml"), "w", encoding="utf-8") as f:
+        f.write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n'
+                + "\n".join(urls) + "\n</urlset>\n")
+    with open(os.path.join(SITE, "robots.txt"), "w", encoding="utf-8") as f:
+        f.write(f"User-agent: *\nAllow: /\n\nSitemap: {SITE_URL}/sitemap.xml\n")
+    # Pagina 404: în amândouă limbile, cu adrese de la rădăcină (merge din orice dosar).
+    css, js = version("assets/css/style.css"), version("assets/js/main.js")
+    with open(os.path.join(SITE, "404.html"), "w", encoding="utf-8") as f:
+        f.write(f'''<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Page not found · Lanruj</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="/assets/img/lanruj.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/css/style.css?v={css}">
+</head>
+<body>
+<main id="main" class="lost">
+  <div class="wrap">
+    <img src="/assets/img/lanruj.svg" alt="" width="88" height="88">
+    <h1>This page is not in the journal</h1>
+    <p>The address may be wrong, or the page has moved.</p>
+    <p><a class="button primary" href="/">Go to the home page</a></p>
+    <p lang="ro" class="lost-ro">Pagina nu e în jurnal: adresa poate fi greșită sau pagina s-a mutat. <a href="/lang/ro/">Mergi la prima pagină</a>.</p>
+  </div>
+</main>
+</body>
+</html>
+''')
+    with open(os.path.join(SITE, ".htaccess"), "w", encoding="utf-8") as f:
+        f.write('''# Lanruj - site. Fișier făcut de tools/pagini.py.
+ErrorDocument 404 /404.html
+Options -Indexes
+AddDefaultCharset utf-8
+AddType image/webp .webp
+AddType image/svg+xml .svg
+
+# HTTPS și fără „www.”
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteCond %{HTTPS} off
+    RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+    RewriteCond %{HTTP_HOST} ^www\\.(.+)$ [NC]
+    RewriteRule ^ https://%1%{REQUEST_URI} [L,R=301]
+</IfModule>
+
+# compresie
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/css text/plain application/javascript application/json application/ld+json image/svg+xml application/xml
+</IfModule>
+
+# memorarea în browser: stilul și scriptul au amprenta în adresă (?v=…), deci pot sta un an
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresDefault "access plus 1 hour"
+    ExpiresByType text/html "access plus 0 seconds"
+    ExpiresByType text/css "access plus 1 year"
+    ExpiresByType application/javascript "access plus 1 year"
+    ExpiresByType image/webp "access plus 1 month"
+    ExpiresByType image/jpeg "access plus 1 month"
+    ExpiresByType image/png "access plus 1 month"
+    ExpiresByType image/svg+xml "access plus 1 month"
+</IfModule>
+
+# antete de siguranță
+<IfModule mod_headers.c>
+    Header always set X-Content-Type-Options "nosniff"
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+    Header always set X-Frame-Options "SAMEORIGIN"
+    Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
+</IfModule>
+
+# notițele și uneltele de lucru nu sunt pentru vizitatori
+<FilesMatch "(?i)(\\.(py|md|sh)$|^README|^LICENSE)">
+    Require all denied
+</FilesMatch>
+RedirectMatch 403 ^/tools(/|$)
+''')
 
 
 if __name__ == "__main__":

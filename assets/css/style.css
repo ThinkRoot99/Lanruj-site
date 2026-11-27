@@ -269,3 +269,29 @@ footer .legal { margin-top: 32px; padding-top: 20px; border-top: 1px solid var(-
 .copyleft { display: inline-block; transform: scaleX(-1); }
 footer .legal.copy { margin-bottom: 0; padding-bottom: 0; border-bottom: none; font-weight: 600; }
 footer .legal.copy + .legal { margin-top: 6px; padding-top: 0; border-top: none; }
+
+/* ---- Accesibilitate: legătura „sari la conținut” și conturul la tastatură ---- */
+.skip { position: absolute; left: 12px; top: -60px; z-index: 100; background: var(--ink); color: #fff; padding: 10px 16px; border-radius: 10px; text-decoration: none; transition: top 0.2s; }
+.skip:focus { top: 12px; }
+:focus-visible { outline: 3px solid var(--ochre); outline-offset: 3px; border-radius: 6px; }
+
+/* ---- Telefon: meniul trece sub logo, pe un rând care se poate derula ---- */
+@media (max-width: 880px) {
+  .top .wrap { flex-wrap: wrap; row-gap: 6px; height: auto; padding-top: 10px; }
+  .top nav { display: flex; order: 3; width: 100%; overflow-x: auto; gap: 18px; padding: 2px 0 8px; scrollbar-width: none; }
+  .top nav::-webkit-scrollbar { display: none; }
+  .top nav a { white-space: nowrap; }
+}
+/* tabletă: cardurile pe două coloane */
+@media (min-width: 600px) and (max-width: 880px) {
+  .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 380px) {
+  .actions .button { width: 100%; justify-content: center; }
+}
+
+/* ---- Pagina 404 ---- */
+.lost { min-height: 100vh; display: grid; place-items: center; text-align: center; padding: 40px 0; }
+.lost h1 { font-size: clamp(1.8rem, 5vw, 2.6rem); margin: 18px 0 8px; }
+.lost p { color: var(--muted); }
+.lost .lost-ro { margin-top: 28px; font-size: 0.95rem; }

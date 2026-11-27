@@ -9,7 +9,8 @@
   var here = root.getAttribute("lang") || "en";
   function pageFor(l) {
     var link = document.querySelector('link[rel="alternate"][hreflang="' + l + '"]');
-    return link ? link.getAttribute("href") : null;
+    // data-rel: legătura relativă (merge și pe calculator, și pe orice domeniu); href e adresa publică.
+    return link ? (link.getAttribute("data-rel") || link.getAttribute("href")) : null;
   }
   var saved = null;
   try { saved = localStorage.getItem(KEY); } catch (e) {}

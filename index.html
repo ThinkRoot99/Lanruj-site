@@ -25,8 +25,11 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:locale:alternate" content="ro_RO">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="stylesheet" href="assets/css/style.css?v=8a0c17be99">
-<script src="assets/js/main.js?v=029f297b69" defer></script>
+<script>try{var t=localStorage.getItem("lanruj-tema");if(t==="dark"||t==="light")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+<link rel="preload" href="assets/fonts/inter.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/caveat.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/css/style.css?v=f2a6ba61b7">
+<script src="assets/js/main.js?v=ff35dae9e3" defer></script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Lanruj", "operatingSystem": "Linux", "applicationCategory": "ProductivityApplication", "description": "Lanruj is an open-source bullet journal app for Linux, for taking notes and organising your time and routines. Your notes stay in Markdown files on your computer, with optional encryption.", "url": "https://lanruj.thinkopen.ro/", "image": "https://lanruj.thinkopen.ro/assets/img/og-en.jpg", "license": "https://www.gnu.org/licenses/gpl-3.0.html", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"}, "inLanguage": ["en", "ro"]}</script>
 </head>
 <body>
@@ -42,6 +45,7 @@
       <a href="contact.html">Contact</a>
       <a href="privacy.html">Privacy</a>
     </nav>
+    <button class="theme" type="button" aria-label="Light or dark"><svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M4.6 4.6l1.6 1.6M17.8 17.8l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.6 19.4l1.6-1.6M17.8 6.2l1.6-1.6"/></svg><svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg></button>
     <label class="lang-pick">
       <select id="lang" aria-label="Language">
         <option value="en">English</option>
@@ -56,6 +60,7 @@
 <section class="hero">
   <div class="wrap">
     <div class="reveal">
+      <p class="today"></p>
       <h1>A <span class="ink">bullet journal<svg viewBox="0 0 300 20" preserveAspectRatio="none" aria-hidden="true"><path d="M3 13 C 60 4, 140 18, 200 9 S 280 6, 297 11"/></svg></span> app for Linux</h1>
       <p class="lead">Lanruj is an open-source bullet journal app for taking notes and organising your time and routines.</p>
       <div class="actions">
@@ -76,6 +81,28 @@
         </picture>
       </figure>
       <p class="note" aria-hidden="true">yesterday and today, side by side<svg viewBox="0 0 70 50"><path d="M4 46 C 20 30, 34 18, 62 8 M50 6 L63 8 L56 19"/></svg></p>
+    </div>
+  </div>
+</section>
+
+<section class="demo" aria-labelledby="demo-title">
+  <div class="wrap">
+    <div class="demo-text reveal">
+      <p class="eyebrow">The method, in a few seconds</p>
+      <h2 id="demo-title">Write it down, tick it off, move it on</h2>
+      <p>You write short lines in the field at the bottom of the page. The first sign tells Lanruj what kind of line it is. When a task is done, you tick it; in the evening, what is left moves on to tomorrow.</p>
+      <ul class="legend">
+        <li><b>•</b> a task</li>
+        <li><b>○</b> an event</li>
+        <li><b>–</b> a note</li>
+        <li><b>×</b> done</li>
+        <li><b>&gt;</b> moved on</li>
+      </ul>
+    </div>
+    <div class="notebook reveal" role="img" aria-label="An animated notebook page: tasks, an event and a note are written, one task is ticked off and another moves to tomorrow">
+      <h3>Today</h3>
+      <ol></ol>
+      <div class="field">Write here: . task, o event, - note</div>
     </div>
   </div>
 </section>

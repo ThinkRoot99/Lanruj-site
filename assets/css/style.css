@@ -1,4 +1,9 @@
 /* Lanruj - site. Culorile vin din iconiță: cerneală, hârtie, ocru. */
+
+/* Fonturile aplicației (SIL Open Font License 1.1, licențele în assets/fonts), reduse la literele folosite. */
+@font-face { font-family: "Inter"; src: url("../fonts/inter.woff2") format("woff2"); font-weight: 400 800; font-display: swap; }
+@font-face { font-family: "Caveat"; src: url("../fonts/caveat.woff2") format("woff2"); font-weight: 400 700; font-display: swap; }
+
 :root {
   --ink: #1f3a5f;
   --ink-2: #33557f;
@@ -14,10 +19,12 @@
   --card: #fffdf8;
   --shadow: 0 1px 2px rgba(31, 58, 95, 0.08), 0 14px 36px rgba(31, 58, 95, 0.13);
   --radius: 14px;
-  --hand: "Segoe Print", "Comic Neue", "Bradley Hand", "Noteworthy", "Chalkboard SE", cursive;
+  --hand: "Caveat", "Segoe Print", "Bradley Hand", cursive;
+  --sans: "Inter", system-ui, -apple-system, "Segoe UI", Cantarell, "Noto Sans", sans-serif;
+  color-scheme: light;
 }
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme="light"]) {
     --ink: #b8cdea;
     --ink-2: #9fb6d6;
     --paper: #2a2620;
@@ -31,7 +38,24 @@
     --dot: rgba(236, 230, 218, 0.08);
     --card: #24221f;
     --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 14px 36px rgba(0, 0, 0, 0.4);
+    color-scheme: dark;
   }
+}
+:root[data-theme="dark"] {
+  --ink: #b8cdea;
+  --ink-2: #9fb6d6;
+  --paper: #2a2620;
+  --paper-2: #24211c;
+  --bg: #1b1a18;
+  --text: #ece6da;
+  --muted: #a9a294;
+  --ochre: #e8b24a;
+  --red: #e7826e;
+  --line: #3a352d;
+  --dot: rgba(236, 230, 218, 0.08);
+  --card: #24221f;
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 14px 36px rgba(0, 0, 0, 0.4);
+  color-scheme: dark;
 }
 
 * { box-sizing: border-box; }
@@ -40,7 +64,7 @@ body {
   margin: 0;
   background: var(--bg);
   color: var(--text);
-  font: 17px/1.6 system-ui, -apple-system, "Segoe UI", "Cantarell", "Noto Sans", sans-serif;
+  font: 17px/1.6 var(--sans);
   -webkit-font-smoothing: antialiased;
 }
 img { max-width: 100%; height: auto; display: block; }
@@ -121,7 +145,7 @@ section { padding: 88px 0; }
 .shot { margin: 0; border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); border: 1px solid var(--line); background: var(--card); }
 
 /* Notă pe margine, scrisă de mână, cu săgeată desenată. */
-.note { position: absolute; font: 1.05rem/1.25 var(--hand); color: var(--red); max-width: 170px; pointer-events: none; }
+.note { position: absolute; font: 1.4rem/1.1 var(--hand); color: var(--red); max-width: 170px; pointer-events: none; }
 .note svg { position: absolute; width: 70px; height: 50px; overflow: visible; }
 .note path { fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; }
 .hero-shot .note { left: -26px; bottom: -58px; transform: rotate(-4deg); }
@@ -208,7 +232,7 @@ footer ul { list-style: none; padding: 0; margin: 0; }
 footer li { margin-bottom: 6px; }
 footer a { color: var(--muted); text-decoration: none; }
 footer a:hover { color: var(--ink); }
-footer .sign { font: 1.1rem var(--hand); color: var(--ink); margin-top: 12px; }
+footer .sign { font: 1.45rem/1.2 var(--hand); color: var(--ink); margin-top: 12px; }
 footer .legal { margin-top: 32px; padding-top: 20px; border-top: 1px solid var(--line); font-size: 0.85rem; }
 
 /* ---- Apariția la derulare ---- */
@@ -254,7 +278,7 @@ footer .legal { margin-top: 32px; padding-top: 20px; border-top: 1px solid var(-
 .prose h2:first-child { margin-top: 0; }
 .prose ul { padding-left: 1.2em; }
 .prose li { margin-bottom: 0.6em; }
-.prose code { background: var(--paper); border: 1px solid var(--line); border-radius: 6px; padding: 1px 6px; font-size: 0.92em; }
+.prose code { background: var(--paper); border: 1px solid var(--line); border-radius: 6px; padding: 1px 6px; font-size: 0.92em;  overflow-wrap: anywhere; }
 .prose .checks { padding-left: 0; }
 .prose h3 { font-size: 1.15rem; margin-top: 1.4em; }
 .prose .table-wrap { overflow-x: auto; margin: 0.8em 0 1.4em; }
@@ -302,3 +326,100 @@ footer .legal.copy + .legal { margin-top: 6px; padding-top: 0; border-top: none;
 .lost p { color: var(--muted); }
 .lost .lost-ro { margin-top: 28px; font-size: 0.95rem; }
 @media (max-width: 600px) { .prose td:first-child { white-space: normal; } }
+
+/* ================= Finisaje ================= */
+
+html { scrollbar-color: var(--line) var(--bg); }
+::selection { background: var(--ochre); color: #fff; }
+
+/* Comutatorul zi / noapte */
+.theme {
+  display: inline-grid; place-items: center; width: 40px; height: 40px; flex: none;
+  border: 1px solid var(--line); border-radius: 99px; background: transparent; color: var(--ink); cursor: pointer;
+  transition: background 0.2s, transform 0.3s;
+}
+.theme:hover { background: var(--paper); }
+.theme svg { width: 20px; height: 20px; }
+.theme .moon { display: none; }
+:root[data-theme="dark"] .theme .sun { display: none; }
+:root[data-theme="dark"] .theme .moon { display: block; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .theme .sun { display: none; }
+  :root:not([data-theme="light"]) .theme .moon { display: block; }
+}
+.no-js .theme { display: none; }
+@media (max-width: 880px) { .lang-pick { margin-left: auto; } }
+
+/* Data de azi, scrisă de mână, ca în capul unei pagini de caiet */
+.today { font: 700 1.7rem/1.1 var(--hand); color: var(--red); margin: 0 0 14px; transform: rotate(-1.5deg); transform-origin: left; min-height: 1.1em; }
+.today small { display: block; font-size: 0.75em; font-weight: 500; color: var(--muted); margin-top: 2px; }
+.no-js .today { display: none; }
+
+/* ---- Caietul care se scrie ---- */
+.demo { padding: 72px 0; }
+.demo .wrap { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: 56px; align-items: center; }
+.demo-text p { font-size: 1.08rem; }
+.demo-text .legend { list-style: none; padding: 0; margin: 18px 0 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px 18px; font-size: 0.95rem; color: var(--muted); }
+.demo-text .legend b { display: inline-block; width: 1.3em; color: var(--ink); text-align: center; }
+.notebook {
+  position: relative; min-height: 330px; padding: 26px 30px 30px 58px;
+  background-color: var(--card);
+  background-image: radial-gradient(circle, var(--dot) 1.2px, transparent 1.8px);
+  background-size: 22px 22px; background-position: 11px 11px;
+  border: 1px solid var(--line); border-radius: 6px 16px 16px 6px; box-shadow: var(--shadow);
+  transform: rotate(-1deg);
+}
+.notebook::before { /* cotorul caietului */
+  content: ""; position: absolute; left: 22px; top: 18px; bottom: 18px; width: 2px;
+  background: repeating-linear-gradient(to bottom, var(--line) 0 10px, transparent 10px 18px);
+}
+.notebook h3 { font: 700 1.9rem/1 var(--hand); color: var(--ink); margin: 0 0 16px; }
+.notebook ol { list-style: none; margin: 0; padding: 0; font-size: 1.05rem; }
+.notebook li { display: flex; gap: 12px; align-items: baseline; min-height: 1.9em; color: var(--text); transition: opacity 0.4s, transform 0.4s; }
+.notebook .sg { width: 1.1em; flex: none; text-align: center; font-weight: 800; color: var(--ink); transition: color 0.3s; }
+.notebook .tx { position: relative; }
+.notebook .tx::after { /* linia care taie o sarcină făcută */
+  content: ""; position: absolute; left: -2px; right: -2px; top: 55%; height: 2px; background: var(--muted);
+  transform: scaleX(0); transform-origin: left; transition: transform 0.45s ease;
+}
+.notebook li.done .tx { color: var(--muted); }
+.notebook li.done .tx::after { transform: scaleX(1); }
+.notebook li.moved { opacity: 0.45; }
+.notebook li.moved .sg { color: var(--ochre); }
+.notebook .tag { font: 600 1.15rem/1 var(--hand); color: var(--ochre); margin-left: 8px; opacity: 0; transition: opacity 0.4s; }
+.notebook li.moved .tag { opacity: 1; }
+.notebook .caret { display: inline-block; width: 2px; height: 1.05em; margin-left: 2px; vertical-align: -0.15em; background: var(--ink); animation: blink 1s steps(1) infinite; }
+@keyframes blink { 50% { opacity: 0; } }
+.notebook .field {
+  position: absolute; left: 58px; right: 30px; bottom: 22px; padding: 8px 12px;
+  border: 1.5px solid var(--line); border-radius: 10px; background: var(--bg);
+  color: var(--muted); font-size: 0.95rem; min-height: 2.4em;
+}
+.notebook .field.typing { border-color: var(--ink); color: var(--text); }
+
+/* ---- Capturile, mari ---- */
+.shot img { cursor: zoom-in; }
+.zoom {
+  width: min(1280px, 100vw - 32px); max-width: none; max-height: calc(100vh - 32px); padding: 0; border: 0;
+  background: transparent; overflow: visible;
+}
+.zoom::backdrop { background: rgba(20, 22, 26, 0.86); backdrop-filter: blur(4px); }
+.zoom figure { margin: 0; }
+.zoom img { width: 100%; height: auto; max-height: calc(100vh - 110px); object-fit: contain; border-radius: 12px; box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5); background: var(--card); cursor: default; }
+.zoom figcaption { color: #eee; text-align: center; margin-top: 12px; font-size: 0.95rem; }
+.zoom button {
+  position: absolute; display: grid; place-items: center; width: 44px; height: 44px; border-radius: 99px;
+  border: 0; background: rgba(255, 255, 255, 0.92); color: #1f3a5f; font-size: 1.4rem; cursor: pointer;
+}
+.zoom .close { top: -14px; right: -14px; }
+.zoom .prev { left: -14px; top: calc(50% - 40px); }
+.zoom .next { right: -14px; top: calc(50% - 40px); }
+@media (max-width: 700px) { .zoom .prev, .zoom .next { top: auto; bottom: -56px; } .zoom .prev { left: calc(50% - 54px); } .zoom .next { right: calc(50% - 54px); } }
+
+@media (max-width: 880px) {
+  .demo .wrap { grid-template-columns: minmax(0, 1fr); gap: 32px; }
+  .notebook { padding-left: 50px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .notebook .caret { display: none; }
+}

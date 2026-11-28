@@ -25,8 +25,11 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:locale:alternate" content="ro_RO">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="stylesheet" href="assets/css/style.css?v=8a0c17be99">
-<script src="assets/js/main.js?v=029f297b69" defer></script>
+<script>try{var t=localStorage.getItem("lanruj-tema");if(t==="dark"||t==="light")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+<link rel="preload" href="assets/fonts/inter.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/caveat.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/css/style.css?v=f2a6ba61b7">
+<script src="assets/js/main.js?v=ff35dae9e3" defer></script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -40,6 +43,7 @@
       <a href="contact.html">Contact</a>
       <a href="privacy.html" aria-current="page">Privacy</a>
     </nav>
+    <button class="theme" type="button" aria-label="Light or dark"><svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M4.6 4.6l1.6 1.6M17.8 17.8l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.6 19.4l1.6-1.6M17.8 6.2l1.6-1.6"/></svg><svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg></button>
     <label class="lang-pick">
       <select id="lang" aria-label="Language">
         <option value="en">English</option>
@@ -69,7 +73,7 @@
   <h2>This website</h2>
   <ul>
     <li><b>No cookies, no analytics, no ads.</b> The site loads no fonts, scripts or images from other websites.</li>
-    <li><b>Your language choice</b> is kept in your browser's local storage, on your device, only so the site opens in the language you picked. You can clear it from your browser at any time.</li>
+    <li><b>Your language choice</b> and, if you use the button, <b>your choice of light or dark mode</b> are kept in your browser's local storage, on your device, only so the site opens the way you left it. You can clear them from your browser at any time.</li>
     <li><b>Server logs.</b> Like most websites, the server that hosts this site may keep standard access logs (such as the address of your device and the time of the visit) for security and to keep the site running. They are not used to identify or follow you.</li>
   </ul>
   <h2>Contact</h2>

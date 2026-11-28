@@ -1,4 +1,5 @@
-// Lanruj - site: limba aleasă, bara de sus la derulare, apariția secțiunilor.
+// Lanruj - site: limba aleasă, bara de sus, apariția secțiunilor, zi/noapte, data de azi,
+// caietul care se scrie și capturile mari. Fără cookie-uri; în browser rămân doar limba și zi/noapte.
 (function () {
   var root = document.documentElement;
   root.classList.remove("no-js");
@@ -38,22 +39,18 @@
   var items = document.querySelectorAll(".reveal");
   if (!("IntersectionObserver" in window)) {
     items.forEach(function (el) { el.classList.add("seen"); });
-    return;
+  } else {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) {
+          en.target.classList.add("seen");
+          io.unobserve(en.target);
+        }
+      });
+    }, { rootMargin: "0px 0px -8% 0px", threshold: 0.12 });
+    items.forEach(function (el) { io.observe(el); });
   }
-  var io = new IntersectionObserver(function (entries) {
-    entries.forEach(function (en) {
-      if (en.isIntersecting) {
-        en.target.classList.add("seen");
-        io.unobserve(en.target);
-      }
-    });
-  }, { rootMargin: "0px 0px -8% 0px", threshold: 0.12 });
-  items.forEach(function (el) { io.observe(el); });
-})();
 
-// ================= Finisaje =================
-(function () {
-  var root = document.documentElement;
   var ro = root.lang === "ro";
   var calm = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
